@@ -1,0 +1,282 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { languageList } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+const currentLang = Astro.currentLocale || 'es';
+const translateLabels = useTranslations(currentLang as keyof typeof languageList)
+---
+
+<BaseLayout title={translateLabels("tools.meta_title")}>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-[#1A1A1A] to-[#2d2d2d] text-white py-24 overflow-hidden">
+    <div class="container mx-auto text-center px-4 relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in [text-shadow:_0_4px_12px_rgb(0_0_0_/_30%)]">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] to-[#FF6F61]">
+            {translateLabels("tools.title")}
+          </span>
+        </h1>
+
+        <p class="text-xl md:text-2xl mb-8 animate-fade-in delay-150 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full inline-block">
+          {translateLabels("tools.subtitle")}
+        </p>
+      </div>
+    </div>
+
+    <!-- Anuncio Open Source -->
+    <div class="bg-gradient-to-r from-[#2196F3]/90 to-[#9C27B0]/90 text-white mx-4 mt-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+      <div class="container mx-auto px-6 py-5 text-center text-sm md:text-base">
+        <p class="leading-relaxed">
+          ⭐ <strong>{translateLabels("tools.opensource.title")}</strong>{" "}
+          {translateLabels("tools.opensource.description")}
+          <br />
+          🚀 {translateLabels("tools.opensource.how_to_help")}
+          <br />
+          1. {translateLabels("tools.opensource.step1")}
+          <br />
+          2. {translateLabels("tools.opensource.step2")}
+          <br />
+          3. {translateLabels("tools.opensource.step3")}
+        </p>
+      </div>
+    </div>
+
+    <!-- Efecto de partículas oscuras -->
+    <div class="absolute inset-0 z-0 opacity-20 text-gray-900/20 dark:text-gray-100/20">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <pattern id="circles" width="10" height="10" patternUnits="userSpaceOnUse">
+          <circle cx="1.5" cy="1.5" r="1" fill="currentColor"></circle>
+        </pattern>
+        <rect width="100" height="100" fill="url(#circles)"></rect>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Sección de Herramientas -->
+  <main class="bg-gradient-to-br from-[#F4F4F4] to-[#eaeaea] dark:from-[#1A1A1A] dark:to-[#2d2d2d] py-16 relative">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Optimización del Sistema -->
+        <div class="group bg-white dark:bg-[#2A2A2A] p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="border-l-4 border-[#FF6F61] pl-6">
+            <h2 class="text-2xl font-bold mb-4">
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#FF8C78]">
+                {translateLabels("tools.category1.title")}
+              </span>
+            </h2>
+
+            <div class="space-y-6">
+              <!-- Chris Titus WinUtil -->
+              <div class="tool-card">
+                <h3 class="font-bold mb-2 text-gray-900 dark:text-gray-100">{translateLabels("tools.tool1.name")}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">{translateLabels("tools.tool1.description")}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-[#FF6F61]/10 text-[#FF6F61] px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.windows")}
+                  </span>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.opensource")}
+                  </span>
+                  <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.medium_risk")}
+                  </span>
+                </div>
+                <a href="https://github.com/ChrisTitusTech/winutil" 
+                   class="inline-flex items-center text-[#FF6F61] hover:text-[#FF8C78] font-medium"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  {translateLabels("tools.download")} WinUtil
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Microsoft PowerToys -->
+              <div class="tool-card">
+                <h3 class="font-bold mb-2 text-gray-900 dark:text-gray-100">{translateLabels("tools.tool2.name")}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">{translateLabels("tools.tool2.description")}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-[#FF6F61]/10 text-[#FF6F61] px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.windows")}
+                  </span>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.opensource")}
+                  </span>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.low_risk")}
+                  </span>
+                </div>
+                <a href="https://github.com/microsoft/PowerToys" 
+                   class="inline-flex items-center text-[#FF6F61] hover:text-[#FF8C78] font-medium"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  {translateLabels("tools.download")}
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personalización Avanzada -->
+        <div class="group bg-white dark:bg-[#2A2A2A] p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="border-l-4 border-[#6B5B95] pl-6">
+            <h2 class="text-2xl font-bold mb-4">
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#6B5B95] to-[#8B7CB0]">
+                {translateLabels("tools.category2.title")}
+              </span>
+            </h2>
+
+            <div class="space-y-6">
+              <div class="tool-card">
+                <h3 class="font-bold mb-2 text-gray-900 dark:text-gray-100">{translateLabels("tools.tool3.name")}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">{translateLabels("tools.tool3.description")}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-[#6B5B95]/10 text-[#6B5B95] px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.windows11")}
+                  </span>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.opensource")}
+                  </span>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.low_risk")}
+                  </span>
+                </div>
+                <a href="https://www.startallback.com/" 
+                   class="inline-flex items-center text-[#6B5B95] hover:text-[#8B7CB0] font-medium"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  {translateLabels("tools.download")}
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                  </svg>
+                </a>
+              </div>
+
+              <div class="tool-card">
+                <h3 class="font-bold mb-2 text-gray-900 dark:text-gray-100">{translateLabels("tools.tool4.name")}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">{translateLabels("tools.tool4.description")}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-[#6B5B95]/10 text-[#6B5B95] px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.windows")}
+                  </span>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.opensource")}
+                  </span>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.low_risk")}
+                  </span>
+                </div>
+                <a href="https://windhawk.net/" 
+                   class="inline-flex items-center text-[#6B5B95] hover:text-[#8B7CB0] font-medium"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  {translateLabels("tools.download")}
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seguridad y Mantenimiento -->
+        <div class="group bg-white dark:bg-[#2A2A2A] p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="border-l-4 border-[#4CAF50] pl-6">
+            <h2 class="text-2xl font-bold mb-4">
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#4CAF50] to-[#81C784]">
+                {translateLabels("tools.category3.title")}
+              </span>
+            </h2>
+
+            <div class="space-y-6">
+              <div class="tool-card">
+                <h3 class="font-bold mb-2 text-gray-900 dark:text-gray-100">{translateLabels("tools.tool5.name")}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">{translateLabels("tools.tool5.description")}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-[#4CAF50]/10 text-[#4CAF50] px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.windows_all")}
+                  </span>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.opensource")}
+                  </span>
+                </div>
+                <a href="https://www.bleachbit.org/" 
+                   class="inline-flex items-center text-[#4CAF50] hover:text-[#81C784] font-medium"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  {translateLabels("tools.download")}
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                  </svg>
+                </a>
+              </div>
+
+              <div class="tool-card">
+                <h3 class="font-bold mb-2 text-gray-900 dark:text-gray-100">{translateLabels("tools.tool6.name")}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">{translateLabels("tools.tool6.description")}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-[#4CAF50]/10 text-[#4CAF50] px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.windows")}
+                  </span>
+                  <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">
+                    {translateLabels("tools.tags.medium_risk")}
+                  </span>
+                </div>
+                <a href="https://www.oo-software.com/en/shutup10" 
+                   class="inline-flex items-center text-[#4CAF50] hover:text-[#81C784] font-medium"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  {translateLabels("tools.download")}
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Efecto de partículas oscuras -->
+    <div class="absolute inset-0 opacity-10 dark:opacity-5 pointer-events-none text-gray-900/20 dark:text-gray-100/20">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <pattern id="tools-dots" width="10" height="10" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="1" fill="currentColor"></circle>
+        </pattern>
+        <rect width="100" height="100" fill="url(#tools-dots)"></rect>
+      </svg>
+    </div>
+  </main>
+
+  <style>
+    .tool-card {
+      border-left: 3px solid;
+      padding-left: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateX(8px);
+    }
+
+    .group:hover h2 span {
+      background-position: 100% 50%;
+      transition: background-position 0.5s ease-out;
+    }
+
+    h2 span {
+      background-size: 200% auto;
+      background-position: 0% 50%;
+      transition: background-position 0.3s ease-in;
+    }
+  </style>
+</BaseLayout>

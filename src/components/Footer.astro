@@ -1,0 +1,140 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { languageList } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+const currentLang = Astro.currentLocale || 'es';
+const translateLabels = useTranslations(currentLang as keyof typeof languageList)
+---
+<footer class="bg-gradient-to-br from-[#1A1A1A] to-[#2d2d2d] text-gray-300 pt-8 pb-4">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      <!-- Tarjeta Logo + Descripción -->
+      <div class="p-4 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10">
+        <div class="mb-4">
+          <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#6B5B95]">
+            CodeXtremeOS
+          </span>
+        </div>
+        <p class="text-sm dark:text-gray-400 mb-4">{translateLabels("footer.description")}</p>
+        <div class="flex gap-2">
+          <span class="px-2 py-1 text-xs bg-[#FF6F61]/10 text-[#FF6F61] rounded-full">
+            {translateLabels("footer.version")}
+          </span>
+          <span class="px-2 py-1 text-xs bg-[#6B5B95]/10 text-[#6B5B95] rounded-full">
+            {translateLabels("footer.stable")}
+          </span>
+        </div>
+      </div>
+
+      <!-- Tarjeta Enlaces -->
+      <div class="p-4 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10">
+        <h3 class="text-sm font-semibold mb-3 text-[#FF6F61]">
+          {translateLabels("footer.explore")}
+        </h3>
+        <ul class="space-y-2">
+          <li>
+            <a href={getRelativeLocaleUrl(currentLang, '/')} class="text-sm hover:text-[#FF8C78] transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+              </svg>
+              {translateLabels("nav.home")}
+            </a>
+          </li>
+          <li>
+            <a href={getRelativeLocaleUrl(currentLang, 'guias')} class="text-sm hover:text-[#FF8C78] transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+              {translateLabels("nav.guides")}
+            </a>
+          </li>
+          <li>
+            <a href={getRelativeLocaleUrl(currentLang, 'herramientas')} class="text-sm hover:text-[#FF8C78] transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.518a8.008 8.008 0 0 0 0-7.036M12 2v20m7.428-4.482a8.008 8.008 0 0 0 0-7.036M4.572 12.982a8.008 8.008 0 0 0 0 7.036"/>
+              </svg>
+              {translateLabels("nav.tools")}
+            </a>
+          </li>
+          <li>
+            <a href={getRelativeLocaleUrl(currentLang, 'descargas')} class="text-sm hover:text-[#FF8C78] transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              {translateLabels("nav.download")}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tarjeta Redes -->
+      <div class="p-4 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10">
+        <h3 class="text-sm font-semibold mb-3 text-[#6B5B95]">
+          {translateLabels("footer.connect")}
+        </h3>
+        <div class="grid grid-cols-3 gap-3">
+          <a href="https://x.com/CodeF1ow" 
+             class="p-2 bg-[#FF6F61]/10 hover:bg-[#FF6F61]/20 rounded-lg transition-colors flex justify-center"
+             aria-label={translateLabels("aria.social.twitter")}>
+            <svg class="w-5 h-5 text-[#FF6F61]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/CodeF1ow" 
+             class="p-2 bg-[#6B5B95]/10 hover:bg-[#6B5B95]/20 rounded-lg transition-colors flex justify-center"
+             aria-label={translateLabels("aria.social.github")}>
+            <svg class="w-5 h-5 text-[#6B5B95]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/@CodeFIow" 
+             class="p-2 bg-[#FF0000]/10 hover:bg-[#FF0000]/20 rounded-lg transition-colors flex justify-center"
+             aria-label={translateLabels("aria.social.youtube")}>
+            <svg class="w-5 h-5 text-[#FF0000]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Tarjeta Newsletter -->
+      <div class="p-4 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10">
+        <h3 class="text-sm font-semibold mb-3 text-[#4CAF50]">
+          {translateLabels("footer.updates")}
+        </h3>
+        <p class="text-xs dark:text-gray-400 mb-3">
+          {translateLabels("footer.newsletter")}
+        </p>
+        <form class="flex gap-2">
+          <input 
+            type="email" 
+            placeholder={translateLabels("footer.email.placeholder")} 
+            class="flex-1 px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-[#4CAF50] focus:outline-none"
+          />
+          <button 
+            type="submit" 
+            class="px-3 py-2 bg-[#4CAF50] hover:bg-[#45a049] text-white rounded-lg text-sm transition-colors"
+          >
+            →
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center pt-4 border-t border-white/10">
+      <p class="text-xs dark:text-gray-600">
+        {translateLabels("footer.copyright")}
+        <span class="mx-2">•</span> 
+        <a href="/privacidad" class="hover:text-[#FF6F61] transition-colors">
+          {translateLabels("footer.privacy")}
+        </a> 
+        <span class="mx-2">•</span> 
+        <a href="/terminos" class="hover:text-[#6B5B95] transition-colors">
+          {translateLabels("footer.terms")}
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
