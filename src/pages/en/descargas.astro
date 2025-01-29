@@ -193,8 +193,6 @@ const t = useTranslations(currentLang as keyof typeof languageList);
                 {t("downloads.tags.limited_support")}
               </span>
             </div>
-
-            <!-- Nueva sección de detalles -->
             <div
               class="space-y-4 mb-6 border-t border-gray-200 dark:border-gray-700 pt-4"
             >
@@ -210,6 +208,18 @@ const t = useTranslations(currentLang as keyof typeof languageList);
                   <li>{t("downloads.features.gaming")}</li>
                   <li>{t("downloads.features.security")}</li>
                 </ul>
+              </div>
+
+              <!-- Nueva línea con el enlace agregado -->
+              <div class="text-sm text-gray-600 dark:text-gray-300">
+                <p class="font-medium mb-2">{t("downloads.guide_info")}:</p>
+                <a
+                  href="https://www.ntlite.com/community/index.php?threads/guide-optimized-image.2990/"
+                  class="text-[#4CAF50] hover:text-[#81C784]"
+                  target="_blank"
+                >
+                  {t("downloads.guide_link")}
+                </a>
               </div>
             </div>
 
