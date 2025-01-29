@@ -257,47 +257,67 @@ const t = useTranslations(currentLang as keyof typeof languageList);
 
     <!-- Versión 2 -->
     <div
-      class="group bg-white dark:bg-[#2A2A2A] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
-    >
-      <div class="border-l-4 border-[#6B5B95] pl-6">
-        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
-          {t("downloads.version2.name")}
-        </h3>
-        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
-          {t("downloads.version2.build_info")}
-        </p>
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span
-            class="bg-[#6B5B95]/10 text-[#6B5B95] px-3 py-1 rounded-full text-sm"
-          >
-            {t("downloads.tags.x64_uefi")}
-          </span>
-          <span
-            class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
-          >
-            {t("downloads.tags.stable")}
-          </span>
-        </div>
-        <a
-          href="/ruta-de-descarga-v2"
-          class="inline-flex items-center text-[#6B5B95] hover:text-[#8B7CB0] font-medium"
+    class="group bg-white dark:bg-[#2A2A2A] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+  >
+    <div class="border-l-4 border-[#6B5B95] pl-6">
+      <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
+        {t("downloads.version2.name")}
+      </h3>
+      <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+        {t("downloads.version2.build_info")}
+      </p>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span
+          class="bg-[#6B5B95]/10 text-[#6B5B95] px-3 py-1 rounded-full text-sm"
         >
-          {t("downloads.download_button")}
-          <svg
-            class="w-4 h-4 ml-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-            ></path>
-          </svg>
-        </a>
+          {t("downloads.tags.x64_uefi")}
+        </span>
+        <span
+          class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+        >
+          {t("downloads.tags.stable")}
+        </span>
       </div>
+      <div class="text-sm text-gray-600 dark:text-gray-300 mb-6">
+        <p class="font-medium mb-2">{t("downloads.main_features")}:</p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>{t("downloads.features.installed_size_5gb")}</li>
+          <li>{t("downloads.features.full_featured_updatable_build")}</li>
+          <li>{t("downloads.features.virtual_memory_enabled")}</li>
+          <li>{t("downloads.features.automatic_updates_paused_3000")}</li>
+          <li>{t("downloads.features.optional_system_transparency")}</li>
+          <li>{t("downloads.features.optional_gallery_settings_home")}</li>
+          <li>{t("downloads.features.extreme_performance_apps_games")}</li>
+          <li>{t("downloads.features.integrates_intel_rst_serial_io")}</li>
+          <li>{t("downloads.features.full_support_uwp_xbox_ms_store")}</li>
+          <li>{t("downloads.features.full_support_language_packs")}</li>
+          <li>{t("downloads.features.full_support_optional_features")}</li>
+          <li>{t("downloads.features.enabled_rounded_corners_acrylic_mica")}</li>
+          <li>{t("downloads.features.automatic_updates_paused_10_years")}</li>
+          <li>{t("downloads.features.additional_improvements_optimizations")}</li>
+          <li>{t("downloads.features.no_preinstalled_uwp_apps")}</li>
+          <li>{t("downloads.features.ms_store_installer_included")}</li>
+        </ul>
+      </div>
+      <a
+        href="https://www.mediafire.com/file_premium/nke5hdhje2nq8th/CodeXtremeOS-11-23H2.iso/file"
+        class="inline-flex items-center text-[#6B5B95] hover:text-[#8B7CB0] font-medium"
+      >
+        {t("downloads.download_button")}
+        <svg
+          class="w-4 h-4 ml-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+          ></path>
+        </svg>
+      </a>
     </div>
   </div>
 </BaseLayout>
