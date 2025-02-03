@@ -1,46 +1,39 @@
 export const languageList = {
-    es: "Español",
-    en: "English",
+  es: "Español",
+  en: "English",
 } as const;
 
 export const labels = {
   es: {
+    // =========== Navegación ===========
     "nav.home": "Inicio",
     "nav.guides": "Guias",
     "nav.tools": "Herramientas",
     "nav.download": "Descargas",
+
+    // =========== Tema ===========
     "theme.toggle": "Cambiar Tema",
+
+    // =========== Página Principal ===========
     "download.button": "Descargar Ahora",
-    "home.description": "🚀 Windows modificado para gaming y rendimiento ",
+    "home.description": "🚀 Windows modificado para gaming y rendimiento",
     "home.ques": "¿Qué es CodeXtreme?",
     "home.opti": "Optimización Extrema",
     "home.desopti": "ISO modificada de solo 3.2 GB con máximo rendimiento para gaming y productividad.",
-    "home.dev": "Desarrollo Profesional",
     "home.dev.des": "Creada por CodeFlow con meses de pruebas y optimizaciones para un rendimiento extremo.",
-    "home.safe": "Seguridad Garantizada",
     "home.safe.des": "Con las últimas actualizaciones de seguridad y protección contra malware.",
-    "home.xbox": "Xbox Live",
     "home.xbox.des": "Conéctate a Xbox Live y disfruta de tus juegos favoritos en tu PC.",
-    "home.update": "Actualizaciones Inteligentes",
     "home.update.des": "Solo actualizaciones críticas y de seguridad, sin interrupciones.",
-    "home.performance": "Rendimiento Extremo",
     "home.performance.des": "Con un rendimiento extremo para gaming y productividad.",
-    "home.drivers": "Drivers Actualizados",
     "home.drivers.des": "Controladores actualizados hasta enero de 2025",
-    "home.appearance": "Apariencia",
-    "home.appearance.des": "Herramientas para personalizar la apariencia de Windows sin consumo de recurosos.",
-    "home.support": "Soporte 24/7",
+    "home.appearance.des": "Herramientas para personalizar la apariencia de Windows sin consumo de recursos.",
     "home.support.des": "Comunidad activa y Soporte técnico 24/7 para resolver tus dudas y problemas.",
-    "home.features": "Características Clave",
-    "home.low": "🔄 Bajo Consumo de Recursos",
     "home.low.des": "Con un bajo consumo de recursos para un rendimiento extremo.",
-    "home.compatibility": "🎮 Compatibilidad",
     "home.compatibility.des": "Soporte para juegos AAA y aplicaciones profesionales.",
-    "home.security": "🛡️ Seguridad",
     "home.security.des": "Con las últimas actualizaciones de seguridad y protección contra malware.",
-    "home.personalization": "✨ Personalización",
     "home.personalization.des": "Con herramientas populares para personalizar la apariencia de Windows",
-    "home.go": "¿Listo para comenzar?",
+
+    // =========== Sección NTLite ===========
     "ntlite.title": "Información Importante:",
     "ntlite.description": "Esta ISO fue optimizada y creada con",
     "ntlite.ntlite_name": "NTLite",
@@ -53,9 +46,11 @@ export const labels = {
     "ntlite.warning2": "que cada usuario cree su propia ISO personalizada siguiendo las guías disponibles en nuestro sitio web o en el foro de",
     "ntlite.warning3": "para garantizar la máxima seguridad y control.",
     "ntlite.note1": "💡 Además, es importante destacar que muchas de las ISOs populares que circulan en internet, a menudo invaden a los usuarios con publicidad y programas de terceros innecesarios, y fueron creadas con",
-    "ntlite.note2": ", aunque sus creadores no lo mencionen. Por eso, es fundamental personalizar tu propia ISO para evitar problemas y obtener un sistema limpio y seguro.",
+    "ntlite.note2":", aunque sus creadores no lo mencionen. Por eso, es fundamental personalizar tu propia ISO para evitar problemas y obtener un sistema limpio y seguro.",
     "ntlite.aria.download": "Enlace al sitio oficial de descarga de NTLite",
     "ntlite.aria.forum": "Enlace al foro oficial de guías de NTLite",
+
+    // =========== Footer ===========
     "footer.description": "Build 24H2 optimizado con mejoras extremas",
     "footer.version": "v1.0.0",
     "footer.download": "Descargar",
@@ -63,17 +58,22 @@ export const labels = {
     "footer.explore": "Explorar",
     "footer.connect": "Conectar",
     "footer.updates": "Actualizaciones",
+    "footer.subscribe": "Suscribirse",
     "footer.newsletter": "Recibe noticias sobre nuevas versiones y características",
     "footer.email.placeholder": "Email",
     "footer.copyright": "© 2025 CodeFlow. Todos los derechos reservados.",
     "footer.privacy": "Privacidad",
     "footer.terms": "Términos",
+
+    // =========== Accesibilidad ===========
     "aria.social.twitter": "Enlace a Twitter de CodeFlow",
     "aria.social.github": "Enlace a GitHub de CodeFlow",
     "aria.social.youtube": "Enlace a YouTube de CodeFlow",
     "aria.social.discord": "Enlace a Discord de CodeFlow",
     "aria.social.linkedin": "Enlace a LinkedIn de CodeFlow",
     "aria.social.reddit": "Enlace a Reddit de CodeFlow",
+
+    // =========== Guías ===========
     "guides.title": "Guías y Tutoriales",
     "guides.description": "🚀 Domina la optimización con nuestras guías paso a paso.",
     "guides.meta_title": "Guías y Tutoriales - CodeXtreme",
@@ -92,6 +92,8 @@ export const labels = {
     "guides.guide4.title": "Directivas Ocultas",
     "guides.guide4.description": "Activa directivas ocultas para sacar el máximo rendimiento",
     "guides.view_more": "Ver más",
+
+    // =========== Herramientas ===========
     "tools.meta_title": "Herramientas de Optimización - CodeXtreme",
     "tools.title": "Personalización Pro",
     "tools.subtitle": "🚀 Herramientas de Optimización - Seguridad - Personalización",
@@ -99,7 +101,7 @@ export const labels = {
     "tools.opensource.description": "La mayoría de herramientas aquí recomendadas son Open Source. Si las encuentras útiles, por favor considera dar una estrella en sus repositorios oficiales para apoyar a los desarrolladores.",
     "tools.opensource.how_to_help": "¿Cómo ayudar?",
     "tools.opensource.step1": "Visita el enlace GitHub de cada herramienta",
-    "tools.opensource.step2": "Haz clic en el botón \"⭐ Star\" en la esquina superior derecha",
+    "tools.opensource.step2": 'Haz clic en el botón "⭐ Star" en la esquina superior derecha',
     "tools.opensource.step3": "¡Listo! Estarás contribuyendo al crecimiento del proyecto",
     "tools.category1.title": "🛠 Optimización",
     "tools.category2.title": "🎨 Personalización",
@@ -123,6 +125,8 @@ export const labels = {
     "tools.tags.low_risk": "Bajo riesgo",
     "tools.tags.medium_risk": "Riesgo medio",
     "tools.download": "Descargar",
+
+    // =========== Descargas ===========
     "downloads.hero_description": "🚀 ISOs modificadas",
     "downloads.announcement.title": "🛠️ Importante:",
     "downloads.announcement.full_text": "Estas ISOs fueron creadas con NTLite, herramienta que cualquiera puede usar para crear su propia ISO personalizada.",
@@ -133,7 +137,7 @@ export const labels = {
     "downloads.announcement.custom_tip": "💡 Una ISO personalizada evita bloatware y se adapta exactamente a tus necesidades",
     "downloads.latest_version.title": "🚀 Última Versión",
     "downloads.latest_version.name": "CodeXtremeOS 11",
-    "downloads.latest_version.build_info": "Build 24H2 optimizado con mejoras extremas",
+    "downloads.latest_version.build_info":  "Build 24H2 optimizado con mejoras extremas",
     "downloads.previous_versions.title": "📁 Otras Versiones",
     "downloads.version1.name": "CodeXtremeOS 10",
     "downloads.version1.build_info": "Build 22H2 con soporte Legacy",
@@ -188,11 +192,16 @@ export const labels = {
     "downloads.features.additional_improvements_optimizations": "Mejoras y Optimización Adicionales Incluidas",
   },
   en: {
+        // =========== Navegación ===========
     "nav.home": "Home",
     "nav.guides": "Guides",
     "nav.tools": "Tools",
     "nav.download": "Downloads",
+
+        // =========== Tema ===========
     "theme.toggle": "Toggle Theme",
+
+        // =========== Página Principal ===========
     "download.button": "Download Now",
     "home.description": "🚀 Windows modified for gaming and performance",
     "home.ques": "¿What is CodeXtreme?",
@@ -224,6 +233,8 @@ export const labels = {
     "home.personalization": "✨ Personalization",
     "home.personalization.des": "With popular tools to customize the appearance of Windows",
     "home.go": "Ready to start?",
+
+        // =========== Sección NTLite ===========
     "ntlite.title": "Important Information:",
     "ntlite.description": "This ISO was optimized and created with",
     "ntlite.ntlite_name": "NTLite",
@@ -239,6 +250,8 @@ export const labels = {
     "ntlite.note2": ", even though their creators don't mention it. Therefore, it's crucial to customize your own ISO to avoid issues and get a clean, secure system.",
     "ntlite.aria.download": "Link to NTLite official download site",
     "ntlite.aria.forum": "Link to official NTLite guides forum",
+
+        // =========== Footer ===========
     "footer.description": "Modified Windows for maximum performance",
     "footer.version": "v1.0.0",
     "footer.download": "Download",
@@ -246,17 +259,22 @@ export const labels = {
     "footer.explore": "Explore",
     "footer.connect": "Connect",
     "footer.updates": "Updates",
+    "footer.subscribe": "Subscribe",
     "footer.newsletter": "Receive news about new versions and features",
     "footer.email.placeholder": "Email",
     "footer.copyright": "© 2025 CodeFlow. All rights reserved.",
     "footer.privacy": "Privacy",
     "footer.terms": "Terms",
+
+       // =========== Accesibilidad ===========
     "aria.social.twitter": "Link to CodeFlow Twitter",
     "aria.social.github": "Link to CodeFlow GitHub",
     "aria.social.youtube": "Link to CodeFlow YouTube",
     "aria.social.discord": "Link to CodeFlow Discord",
     "aria.social.linkedin": "Link to CodeFlow LinkedIn",
     "aria.social.reddit": "Link to CodeFlow Reddit",
+
+        // =========== Guides ===========
     "guides.title": "Guides and Tutorials",
     "guides.description": "🚀 Master optimization with our step-by-step guides.",
     "guides.meta_title": "Guides and Tutorials - CodeXtreme",
@@ -275,6 +293,8 @@ export const labels = {
     "guides.guide4.title": "Hidden Policies",
     "guides.guide4.description": "Activate hidden policies to get maximum performance",
     "guides.view_more": "View more",
+
+        // =========== Tools ===========
     "tools.meta_title": "Optimization Tools - CodeXtreme",
     "tools.title": "Pro Customization",
     "tools.subtitle": "🚀 Optimization - Security - Customization Tools",
@@ -282,7 +302,7 @@ export const labels = {
     "tools.opensource.description": "Most tools recommended here are Open Source. If you find them useful, please consider giving a star on their official repositories to support the developers.",
     "tools.opensource.how_to_help": "How to help?",
     "tools.opensource.step1": "Visit each tool's GitHub link",
-    "tools.opensource.step2": "Click the \"⭐ Star\" button in the top right corner",
+    "tools.opensource.step2": 'Click the "⭐ Star" button in the top right corner',
     "tools.opensource.step3": "Done! You'll be contributing to the project's growth",
     "tools.category1.title": "🛠 Optimization",
     "tools.category2.title": "🎨 Customization",
@@ -306,6 +326,8 @@ export const labels = {
     "tools.tags.low_risk": "Low risk",
     "tools.tags.medium_risk": "Medium risk",
     "tools.download": "Download",
+
+        // =========== Downloads ===========
     "downloads.hero_description": "🚀 Modified ISOs",
     "downloads.announcement.title": "🛠️ Important:",
     "downloads.announcement.full_text": "These ISOs were created with NTLite, a tool anyone can use to create their own custom ISO.",
@@ -370,6 +392,6 @@ export const labels = {
     "downloads.features.full_support_optional_features": "Full support for all optional features, including WSA and WSL2",
     "downloads.features.enabled_rounded_corners_acrylic_mica": "Enabled Rounded Corners, Acrylic, and Mica by default (Even in a VM!)",
     "downloads.features.automatic_updates_paused_10_years": "Automatic Updates can be paused for up to 10 years after resuming",
-    "downloads.features.additional_improvements_optimizations": "Additional Improvements and Optimizations Included"
+    "downloads.features.additional_improvements_optimizations": "Additional Improvements and Optimizations Included",
   },
 };
