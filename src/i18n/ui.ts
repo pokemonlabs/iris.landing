@@ -74,7 +74,7 @@ export const labels = {
     "aria.social.reddit": "Enlace a Reddit de CodeFlow",
 
     // =========== Guías ===========
-    "guides.title": "Guías y Tutoriales",
+    "guides.title": "MAJA YONKI Y PUTA",
     "guides.description": "🚀 Domina la optimización con nuestras guías paso a paso.",
     "guides.meta_title": "Guías y Tutoriales - CodeXtreme",
     "guides.support.title": "¡Apoya a los creadores!",

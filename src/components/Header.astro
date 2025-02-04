@@ -10,9 +10,53 @@ const getPathWithoutLocale = (path: string) => {
 
 const currentPathWithoutLocale = getPathWithoutLocale(Astro.url.pathname);
 const currentLang = Astro.currentLocale || "es";
-const translateLabels = useTranslations(
-  currentLang as keyof typeof languageList
-);
+const translateLabels = useTranslations(currentLang as keyof typeof languageList);
+
+// Constantes para clases comunes en enlaces
+const desktopLinkClasses =
+  "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 group dark:text-white";
+const mobileLinkClasses =
+  "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 group text-white";
+
+// Definición de los enlaces de navegación, con los íconos como cadenas HTML
+const navLinks = [
+  {
+    href: getRelativeLocaleUrl(currentLang, "/"),
+    label: translateLabels("nav.home"),
+    icon: `<svg class="w-5 h-5 mr-2 text-[#FF6F61] opacity-70 group-hover:opacity-100 dark:text-[#FF6F61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+          </svg>`,
+    desktopHoverText: "hover:text-[#FF6F61] dark:hover:text-[#FF6F61]",
+    mobileHoverText: "hover:text-[#FF6F61]"
+  },
+  {
+    href: getRelativeLocaleUrl(currentLang, "guias"),
+    label: translateLabels("nav.guides"),
+    icon: `<svg class="w-5 h-5 mr-2 text-[#6B5B95] opacity-70 group-hover:opacity-100 dark:text-[#6B5B95]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 003-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+          </svg>`,
+    desktopHoverText: "hover:text-[#6B5B95] dark:hover:text-[#6B5B95]",
+    mobileHoverText: "hover:text-[#6B5B95]"
+  },
+  {
+    href: getRelativeLocaleUrl(currentLang, "herramientas"),
+    label: translateLabels("nav.tools"),
+    icon: `<svg class="w-5 h-5 mr-2 text-[#4CAF50] opacity-70 group-hover:opacity-100 dark:text-[#4CAF50]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>`,
+    desktopHoverText: "hover:text-[#4CAF50] dark:hover:text-[#4CAF50]",
+    mobileHoverText: "hover:text-[#4CAF50]"
+  },
+  {
+    href: getRelativeLocaleUrl(currentLang, "descargas"),
+    label: translateLabels("nav.download"),
+    icon: `<svg class="w-5 h-5 mr-2 text-[#FFD700] opacity-70 group-hover:opacity-100 dark:text-[#FFD700]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>`,
+    desktopHoverText: "hover:text-[#FFD700] dark:hover:text-[#FFD700]",
+    mobileHoverText: "hover:text-[#FFD700]"
+  }
+];
 ---
 
 <header
@@ -34,96 +78,24 @@ const translateLabels = useTranslations(
     <nav class="flex items-center space-x-6">
       <!-- Menú Desktop -->
       <ul class="hidden md:flex space-x-6">
-        <li>
-          <a
-            href={getRelativeLocaleUrl(currentLang, "/")}
-            class="flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 hover:text-[#FF6F61] group dark:text-white dark:hover:text-[#FF6F61]"
-          >
-            <svg
-              class="w-5 h-5 mr-2 text-[#FF6F61] opacity-70 group-hover:opacity-100 dark:text-[#FF6F61]"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={`${desktopLinkClasses} ${link.desktopHoverText}`}
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-              ></path>
-            </svg>
-            {translateLabels("nav.home")}
-          </a>
-        </li>
-        <li>
-          <a
-            href={getRelativeLocaleUrl(currentLang, "guias")}
-            class="flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 hover:text-[#6B5B95] group dark:text-white dark:hover:text-[#6B5B95]"
-          >
-            <svg
-              class="w-5 h-5 mr-2 text-[#6B5B95] opacity-70 group-hover:opacity-100 dark:text-[#6B5B95]"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 003-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-              ></path>
-            </svg>
-            {translateLabels("nav.guides")}
-          </a>
-        </li>
-        <li>
-          <a
-            href={getRelativeLocaleUrl(currentLang, "herramientas")}
-            class="flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 hover:text-[#4CAF50] group dark:text-white dark:hover:text-[#4CAF50]"
-          >
-            <svg
-              class="w-5 h-5 mr-2 text-[#4CAF50] opacity-70 group-hover:opacity-100 dark:text-[#4CAF50]"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              ></path>
-            </svg>
-            {translateLabels("nav.tools")}
-          </a>
-        </li>
-        <li>
-          <a
-            href={getRelativeLocaleUrl(currentLang, "descargas")}
-            class="flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 hover:text-[#FFD700] group dark:text-white dark:hover:text-[#FFD700]"
-          >
-            <svg
-              class="w-5 h-5 mr-2 text-[#FFD700] opacity-70 group-hover:opacity-100 dark:text-[#FFD700]"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              ></path>
-            </svg>
-            {translateLabels("nav.download")}
-          </a>
-        </li>
+              <span set:html={link.icon}></span>
+              {link.label}
+            </a>
+          </li>
+        ))}
       </ul>
 
       <!-- Botón Hamburguesa (Mobile) -->
       <button
         id="mobile-menu-button"
         class="md:hidden p-2 rounded-lg hover:bg-white/5 transition-colors duration-300"
+        aria-label="Abrir menú"
       >
         <svg
           class="w-6 h-6 text-gray-600 dark:text-gray-300"
@@ -135,7 +107,8 @@ const translateLabels = useTranslations(
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"></path>
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
         </svg>
       </button>
 
@@ -143,10 +116,11 @@ const translateLabels = useTranslations(
       <div class="relative group">
         <button
           class="p-2 rounded-lg bg-gradient-to-br from-[#FF6F61] to-[#6B5B95] hover:from-[#FF8C78] hover:to-[#8B7CB0] transition-all duration-300 flex items-center shadow-md hover:shadow-lg"
+          aria-label="Cambiar idioma"
         >
-          <span class="text-sm font-medium uppercase text-white"
-            >{currentLang}</span
-          >
+          <span class="text-sm font-medium uppercase text-white">
+            {currentLang}
+          </span>
         </button>
 
         <!-- Dropdown de Idiomas -->
@@ -154,24 +128,21 @@ const translateLabels = useTranslations(
           class="absolute right-0 top-full mt-2 w-32 bg-white dark:bg-[#1A1A1A] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-white/10"
         >
           <ul class="py-2">
-            {
-              Object.entries(languageList).map(
-                ([langCode, langName]) =>
-                  currentLang !== langCode && (
-                    <li>
-                      <a
-                        href={getRelativeLocaleUrl(
-                          langCode as any,
-                          currentPathWithoutLocale
-                        )}
-                        class="block px-4 py-2 text-sm hover:bg-white/5 dark:hover:bg-white/10 transition-colors dark:text-white"
-                      >
-                        {langName}
-                      </a>
-                    </li>
-                  )
+            {Object.entries(languageList).map(([langCode, langName]) =>
+              currentLang !== langCode && (
+                <li>
+                  <a
+                    href={getRelativeLocaleUrl(
+                      langCode as any,
+                      currentPathWithoutLocale
+                    )}
+                    class="block px-4 py-2 text-sm hover:bg-white/5 dark:hover:bg-white/10 transition-colors dark:text-white"
+                  >
+                    {langName}
+                  </a>
+                </li>
               )
-            }
+            )}
           </ul>
         </div>
       </div>
@@ -180,12 +151,13 @@ const translateLabels = useTranslations(
       <button
         id="theme-toggle"
         class="p-2 rounded-lg bg-gradient-to-br from-[#FF6F61] to-[#6B5B95] hover:from-[#FF8C78] hover:to-[#8B7CB0] transition-all duration-300 relative group shadow-md hover:shadow-lg"
+        aria-label="Cambiar tema"
       >
         <div class="flex items-center justify-center w-6 h-6">
           <span
             id="theme-icon"
-            class="text-lg transition-transform duration-300">🌙</span
-          >
+            class="text-lg transition-transform duration-300"
+          >🌙</span>
         </div>
         <span
           class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-md"
@@ -203,157 +175,85 @@ const translateLabels = useTranslations(
   >
     <div class="container mx-auto px-4 py-4">
       <ul class="flex flex-row flex-wrap gap-4 justify-center">
-        <li>
-          <a
-            href={getRelativeLocaleUrl(currentLang, "/")}
-            class="flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 hover:text-[#FF6F61] group text-white dark:text-white"
-          >
-            <svg
-              class="w-5 h-5 mr-2 text-[#FF6F61] opacity-70 group-hover:opacity-100"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={`${mobileLinkClasses} ${link.mobileHoverText}`}
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-              ></path>
-            </svg>
-            {translateLabels("nav.home")}
-          </a>
-        </li>
-        <li>
-          <a
-            href={getRelativeLocaleUrl(currentLang, "guias")}
-            class="flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 hover:text-[#6B5B95] group text-white dark:text-white"
-          >
-            <svg
-              class="w-5 h-5 mr-2 text-[#6B5B95] opacity-70 group-hover:opacity-100"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 003-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-              ></path>
-            </svg>
-            {translateLabels("nav.guides")}
-          </a>
-        </li>
-        <li>
-          <a
-            href={getRelativeLocaleUrl(currentLang, "herramientas")}
-            class="flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 hover:text-[#4CAF50] group text-white dark:text-white"
-          >
-            <svg
-              class="w-5 h-5 mr-2 text-[#4CAF50] opacity-70 group-hover:opacity-100"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              ></path>
-            </svg>
-            {translateLabels("nav.tools")}
-          </a>
-        </li>
-        <li>
-          <a
-            href={getRelativeLocaleUrl(currentLang, "descargas")}
-            class="flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 hover:text-[#FFD700] group text-white dark:text-white"
-          >
-            <svg
-              class="w-5 h-5 mr-2 text-[#FFD700] opacity-70 group-hover:opacity-100"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              ></path>
-            </svg>
-            {translateLabels("nav.download")}
-          </a>
-        </li>
+              <span set:html={link.icon}></span>
+              {link.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   </div>
 </header>
 
 <script is:inline>
-  // Script del Tema
-  const themeToggle = document.getElementById("theme-toggle");
-  const themeIcon = document.getElementById("theme-icon");
-  const htmlElement = document.documentElement;
+// Script del Tema
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
+const htmlElement = document.documentElement;
 
-  const toggleTheme = () => {
-    htmlElement.classList.toggle("dark");
-    const isDarkMode = htmlElement.classList.contains("dark");
-    themeIcon.textContent = isDarkMode ? "☀️" : "🌙";
-    themeIcon.classList.add("rotate-[360deg]");
-    setTimeout(() => themeIcon.classList.remove("rotate-[360deg]"), 500);
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-  };
+const toggleTheme = () => {
+  htmlElement.classList.toggle("dark");
+  const isDarkMode = htmlElement.classList.contains("dark");
+  themeIcon.textContent = isDarkMode ? "☀️" : "🌙";
+  themeIcon.classList.add("rotate-[360deg]");
+  setTimeout(() => themeIcon.classList.remove("rotate-[360deg]"), 500);
+  localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+};
 
-  // Cargar tema
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") {
-    htmlElement.classList.remove("dark");
-    themeIcon.textContent = "🌙";
-  } else {
-    htmlElement.classList.add("dark");
-    themeIcon.textContent = "☀️";
+// Cargar tema
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "light") {
+  htmlElement.classList.remove("dark");
+  themeIcon.textContent = "🌙";
+} else {
+  htmlElement.classList.add("dark");
+  themeIcon.textContent = "☀️";
+}
+
+themeToggle.addEventListener("click", toggleTheme);
+
+// Script del Menú Móvil
+const mobileMenuButton = document.getElementById("mobile-menu-button");
+const mobileMenu = document.getElementById("mobile-menu");
+
+const toggleMenu = () => {
+  mobileMenu.classList.toggle("hidden");
+  mobileMenu.classList.toggle("animate-slideDown");
+};
+
+mobileMenuButton.addEventListener("click", (e) => {
+  e.stopPropagation();
+  toggleMenu();
+});
+
+// Delegación de eventos para cerrar el menú móvil al hacer click fuera
+document.addEventListener("click", (e) => {
+  if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+    mobileMenu.classList.add("hidden");
+    mobileMenu.classList.remove("animate-slideDown");
   }
+});
 
-  themeToggle.addEventListener("click", toggleTheme);
+// Cerrar menú al cambiar tamaño de pantalla
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 768) {
+    mobileMenu.classList.add("hidden");
+  }
+});
 
-  // Script del Menú Móvil
-  const mobileMenuButton = document.getElementById("mobile-menu-button");
-  const mobileMenu = document.getElementById("mobile-menu");
-
-  const toggleMenu = () => {
-    mobileMenu.classList.toggle("hidden");
-    mobileMenu.classList.toggle("animate-slideDown");
-  };
-
-  mobileMenuButton.addEventListener("click", (e) => {
-    e.stopPropagation();
-    toggleMenu();
+// Cerrar menú al seleccionar un ítem
+mobileMenu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+    mobileMenu.classList.remove("animate-slideDown");
   });
-
-  document.addEventListener("click", (e) => {
-    if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-      mobileMenu.classList.add("hidden");
-      mobileMenu.classList.remove("animate-slideDown");
-    }
-  });
-
-  // Cerrar menú al cambiar tamaño de pantalla
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 768) {
-      mobileMenu.classList.add("hidden");
-    }
-  });
-
-  // Cerrar al seleccionar un ítem
-  mobileMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-      mobileMenu.classList.remove("animate-slideDown");
-    });
-  });
+});
 </script>
 
 <style>
