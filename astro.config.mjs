@@ -13,7 +13,7 @@ export default defineConfig({
     }
   },
 
-  output: 'server',
+  output: 'static',
   integrations: [tailwind()],
   adapter: netlify(),
 });
