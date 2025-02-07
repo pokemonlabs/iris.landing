@@ -6,7 +6,7 @@
 
 Sitio web oficial de **CodeXtremeOS** - Web informativa creada por **CodeFlow**. Proyecto open source construido con Astro y Tailwind CSS para máxima eficiencia y rendimiento.
 
-[![Desktop](https://i.imgur.com/Rm9cR2F.png)](https://codextreme-web.vercel.app)
+[![Desktop](https://i.imgur.com/XqhS1FZ.png)](https://www.codextreme.me/es/)
 
 ## Propósito del Proyecto
 
