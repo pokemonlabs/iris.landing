@@ -17,7 +17,7 @@ export const labels = {
     // =========== Página Principal ===========
     "download.button": "Descargar Ahora",
     "home.description": "🚀 Windows modificado para gaming y rendimiento",
-    "home.ques": "¿Qué es CodeXtreme?",
+    "home.ques": "¿Qué es CodeXtremeOS?",
     "home.opti": "Optimización Extrema",
     "home.desopti": "ISO modificada de solo 3.2 GB con máximo rendimiento para gaming y productividad.",
     "home.dev.des": "Creada por CodeFlow con meses de pruebas y optimizaciones para un rendimiento extremo.",
@@ -74,9 +74,9 @@ export const labels = {
     "aria.social.reddit": "Enlace a Reddit de CodeFlow",
 
     // =========== Guías ===========
-    "guides.title": "Guias CodeXtreme",
+    "guides.title": "Guias CodeXtremeOS",
     "guides.description": "🚀 Domina la optimización con nuestras guías paso a paso.",
-    "guides.meta_title": "Guías y Tutoriales - CodeXtreme",
+    "guides.meta_title": "Guías y Tutoriales - CodeXtremeOS",
     "guides.support.title": "¡Apoya a los creadores!",
     "guides.support.description1": "Estas guías son posibles gracias a la comunidad. Por favor considera",
     "guides.support.emphasis1": "dar like 👍",
@@ -94,7 +94,7 @@ export const labels = {
     "guides.view_more": "Ver más",
 
     // =========== Herramientas ===========
-    "tools.meta_title": "Herramientas de Optimización - CodeXtreme",
+    "tools.meta_title": "Herramientas de Optimización - CodeXtremeOS",
     "tools.title": "Personalización Pro",
     "tools.subtitle": "🚀 Herramientas de Optimización - Seguridad - Personalización",
     "tools.opensource.title": "¡Importante!",
@@ -204,7 +204,7 @@ export const labels = {
         // =========== Página Principal ===========
     "download.button": "Download Now",
     "home.description": "🚀 Windows modified for gaming and performance",
-    "home.ques": "¿What is CodeXtreme?",
+    "home.ques": "¿What is CodeXtremeOS?",
     "home.opti": "Extreme Optimization",
     "home.desopti": "Modified ISO of only 3.2 GB with maximum performance for gaming and productivity.",
     "home.dev": "Professional Development",
@@ -264,7 +264,7 @@ export const labels = {
         // =========== Guides ===========
     "guides.title": "Guides and Tutorials",
     "guides.description": "🚀 Master optimization with our step-by-step guides.",
-    "guides.meta_title": "Guides and Tutorials - CodeXtreme",
+    "guides.meta_title": "Guides and Tutorials - CodeXtremeOS",
     "guides.support.title": "Support the creators!",
     "guides.support.description1": "These guides are possible thanks to the community. Please consider",
     "guides.support.emphasis1": "giving a like 👍",
@@ -282,7 +282,7 @@ export const labels = {
     "guides.view_more": "View more",
 
         // =========== Tools ===========
-    "tools.meta_title": "Optimization Tools - CodeXtreme",
+    "tools.meta_title": "Optimization Tools - CodeXtremeOS",
     "tools.title": "Pro Customization",
     "tools.subtitle": "🚀 Optimization - Security - Customization Tools",
     "tools.opensource.title": "Important!",
