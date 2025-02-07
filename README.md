@@ -68,7 +68,9 @@ Este proyecto es open source bajo licencia MIT.
 
 ## Soporte y Contacto
 ¿Preguntas o sugerencias?
-Equipo CodeFlow: soporte@codeflow.dev
-Twitter: @CodeF1ow
+
+**Equipo CodeXtreme:** soporte@codeflow.dev
+
+**Twitter:** @CodeF1ow
 
 ---
