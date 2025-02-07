@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import { languageList } from "../../i18n/ui";
 import { useTranslations } from "../../i18n/utils";
 
-const currentLang = Astro.currentLocale || "en";
+const currentLang = Astro.currentLocale || "es";
 const t = useTranslations(currentLang as keyof typeof languageList);
 ---
 
@@ -52,19 +52,27 @@ const t = useTranslations(currentLang as keyof typeof languageList);
         </p>
       </div>
     </div>
+    
   </section>
 
   <!-- Sección Principal -->
   <main class="bg-gradient-to-br from-[#F4F4F4] to-[#eaeaea] dark:from-[#1A1A1A] py-16 relative">
+    <h2 class="text-3xl font-bold text-center mb-12">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#6B5B95] to-[#8B7CB0]">
+        {t("downloads.11_versions.title")}
+      </span>
+    </h2>
     <div class="container mx-auto px-4">
       <div class="group bg-white dark:bg-[#2A2A2A] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 max-w-2xl mx-auto mb-16">
         <div class="border-l-4 border-[#FF6F61] pl-6">
           <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
             {t("downloads.latest_version.name")}
           </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
-            {t("downloads.latest_version.build_info")}
-          </p>
+          <div class="mb-4">
+            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
+              {t("downloads.latest_version.build_info")}
+            </span>
+          </div>
           <div class="flex flex-wrap gap-2 mb-6">
             <span class="bg-[#FF6F61]/10 text-[#FF6F61] px-3 py-1 rounded-full text-sm">
               {t("downloads.tags.x64_uefi")}
@@ -131,9 +139,9 @@ const t = useTranslations(currentLang as keyof typeof languageList);
           <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
             {t("downloads.version1.name")}
           </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+          <span class="inline-block bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm mb-4">
             {t("downloads.version1.build_info")}
-          </p>
+          </span>
           <div class="flex flex-wrap gap-2 mb-6">
             <span class="bg-[#4CAF50]/10 text-[#4CAF50] px-3 py-1 rounded-full text-sm">
               {t("downloads.tags.x64_uefi")}
@@ -143,6 +151,9 @@ const t = useTranslations(currentLang as keyof typeof languageList);
             </span>
             <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">
               {t("downloads.tags.limited_support")}
+            </span>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+              {t("downloads.tags.updated")}: 7-02-2025
             </span>
           </div>
           <div class="space-y-4 mb-6 border-t border-gray-200 dark:border-gray-700 pt-4">

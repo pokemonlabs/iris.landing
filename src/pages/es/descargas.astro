@@ -52,10 +52,16 @@ const t = useTranslations(currentLang as keyof typeof languageList);
         </p>
       </div>
     </div>
+    
   </section>
 
   <!-- Sección Principal -->
   <main class="bg-gradient-to-br from-[#F4F4F4] to-[#eaeaea] dark:from-[#1A1A1A] py-16 relative">
+    <h2 class="text-3xl font-bold text-center mb-12">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#c067b1] to-[#2d1033]">
+        {t("downloads.11_versions.title")}
+      </span>
+    </h2>
     <div class="container mx-auto px-4">
       <div class="group bg-white dark:bg-[#2A2A2A] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 max-w-2xl mx-auto mb-16">
         <div class="border-l-4 border-[#FF6F61] pl-6">
