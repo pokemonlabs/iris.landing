@@ -10,7 +10,7 @@ const translateLabels = useTranslations(
 ---
 
 <BaseLayout title={translateLabels("guides.meta_title")}>
-  <!-- Hero Section -->
+  {/* Hero Section */}
   <div class="container mx-auto px-4 text-center relative z-10">
     <div class="max-w-4xl mx-auto">
       <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in [text-shadow:_0_4px_12px_rgb(0_0_0_/_30%)]">
@@ -24,9 +24,9 @@ const translateLabels = useTranslations(
     </div>
   </div>
 
-  <!-- Contenido Principal -->
+  {/* Contenido Principal */}
   <main class="bg-gradient-to-br from-[#1A1A1A] py-16 relative">
-    <!-- Aviso de Apoyo a Creadores -->
+    {/* Aviso de Apoyo a Creadores */}
     <section class="py-8 relative">
       <div class="max-w-5xl mx-auto">
         <div class="bg-gradient-to-r from-[#2196F3]/90 to-[#9C27B0]/90 text-white mx-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
@@ -45,7 +45,7 @@ const translateLabels = useTranslations(
       </div>
     </section>
 
-    <!-- Grid de Guías -->
+    {/* Grid de Guías */}
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
         {[
@@ -92,6 +92,51 @@ const translateLabels = useTranslations(
             gradientFrom: "from-[#4CAF50]",
             gradientTo: "to-[#81C784]",
             icon: "🔧",
+          },
+          // Nuevas guías
+          {
+            title: "guides.guide5.title" as const,
+            description: "guides.guide5.description" as const,
+            link: "https://www.youtube.com/watch?v=5Q8CHJxlil4",
+            borderColor: "border-[#00BCD4]",
+            textColor: "text-[#00BCD4]",
+            hoverTextColor: "hover:text-[#4DD0E1]",
+            gradientFrom: "from-[#00BCD4]",
+            gradientTo: "to-[#4DD0E1]",
+            icon: "🚀",
+          },
+          {
+            title: "guides.guide6.title" as const,
+            description: "guides.guide6.description" as const,
+            link: "https://windowsforum.com/threads/step-by-step-guide-how-to-do-a-clean-install-of-windows-11.264029/",
+            borderColor: "border-[#FF5722]",
+            textColor: "text-[#FF5722]",
+            hoverTextColor: "hover:text-[#FF8A65]",
+            gradientFrom: "from-[#FF5722]",
+            gradientTo: "to-[#FF8A65]",
+            icon: "🤖",
+          },
+          {
+            title: "guides.guide7.title" as const,
+            description: "guides.guide7.description" as const,
+            link: "https://www.youtube.com/watch?v=iBiNfa32AnE",
+            borderColor: "border-[#8E24AA]",
+            textColor: "text-[#8E24AA]",
+            hoverTextColor: "hover:text-[#BA68C8]",
+            gradientFrom: "from-[#8E24AA]",
+            gradientTo: "to-[#BA68C8]",
+            icon: "🔍",
+          },
+          {
+            title: "guides.guide8.title" as const,
+            description: "guides.guide8.description" as const,
+            link: "https://alternativeto.net/",
+            borderColor: "border-[#3F51B5]",
+            textColor: "text-[#3F51B5]",
+            hoverTextColor: "hover:text-[#7986CB]",
+            gradientFrom: "from-[#3F51B5]",
+            gradientTo: "to-[#7986CB]",
+            icon: "💻",
           },
         ].map((guide) => (
           <div

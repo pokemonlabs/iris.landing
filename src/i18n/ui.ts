@@ -92,6 +92,14 @@ export const labels = {
     "guides.guide4.title": "Directivas Ocultas",
     "guides.guide4.description": "Activa directivas ocultas para sacar el máximo rendimiento",
     "guides.view_more": "Ver más",
+    "guides.guide5.title": "Optimización de Recursos",
+    "guides.guide5.description": "Aprende a reducir el uso de CPU y RAM para maximizar el rendimiento de tu ISO.",
+    "guides.guide6.title": "Instalacion Limpia",
+    "guides.guide6.description": "Descubre cómo configurar tareas automáticas tras la instalación para mantener tu sistema optimizado.",
+    "guides.guide7.title": "Aumente el Rendimiento",
+    "guides.guide7.description": "Descubra cómo aumentar el rendimiento de su Windows 11 con estos consejos y trucos.",
+    "guides.guide8.title": "El mejor Software",
+    "guides.guide8.description": "Descubra el mejor software para Windows 10/11 en 2025.",
 
     // =========== Herramientas ===========
     "tools.meta_title": "Herramientas de Optimización - CodeXtremeOS",
@@ -278,6 +286,14 @@ export const labels = {
     "guides.guide4.title": "Hidden Policies",
     "guides.guide4.description": "Activate hidden policies to get maximum performance",
     "guides.view_more": "View more",
+    "guides.guide5.title": "Resource Optimization",
+    "guides.guide5.description": "Learn to reduce CPU and RAM usage to maximize your ISO performance.",
+    "guides.guide6.title": "Clean Installation",
+    "guides.guide6.description": "Discover how to set up automatic tasks after installation to keep your system optimized.",
+    "guides.guide7.title": "Increase Performance",
+    "guides.guide7.description": "Discover how to increase the performance of your Windows 11 with these tips and tricks.",
+    "guides.guide8.title": "Best Software",
+    "guides.guide8.description": "Discover the best software for Windows 10/11 in 2025.",
 
         // =========== Tools ===========
     "tools.meta_title": "Optimization Tools - CodeXtremeOS",
