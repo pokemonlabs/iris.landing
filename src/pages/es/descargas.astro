@@ -3,9 +3,104 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { languageList } from "../../i18n/ui";
 import { useTranslations } from "../../i18n/utils";
+import VersionCard from "../../components/VersionCard.astro";
 
 const currentLang = Astro.currentLocale || "es";
 const t = useTranslations(currentLang as keyof typeof languageList);
+
+const latestVersions = [
+  {
+    title: t("downloads.latest_version.name"),
+    buildInfo: t("downloads.latest_version.build_info"),
+    tags: [
+      { label: t("downloads.tags.x64_uefi"), bgColor: "blue-100", textColor: "blue-800" },
+      { label: t("downloads.tags.stable"), bgColor: "green-100", textColor: "green-800" },
+      { label: `${t("downloads.tags.updated")}: 7-02-2025`, bgColor: "blue-100", textColor: "blue-800" },
+    ],
+    features: [
+      t("downloads.features.iso_size"),
+      t("downloads.features.debloated_optimized"),
+      t("downloads.features.full_updatable_build"),
+      t("downloads.features.automatic_updates_paused"),
+      t("downloads.features.intel_rst_drivers"),
+      t("downloads.features.extreme_performance"),
+      t("downloads.features.uwp_apps_support"),
+      t("downloads.features.additional_language_support"),
+      t("downloads.features.optional_features_support"),
+      t("downloads.features.improvements_optimizations"),
+      t("downloads.features.no_preinstalled_uwp_apps"),
+      t("downloads.features_no_internet"),
+      t("downloads.features_telemetry"),
+      t("downloads.features.ms_store_installer_included"),
+    ],
+    link: "https://www.mediafire.com/file_premium/mfmqqd8b218eozc/CodeXtremeOS11_24H2.iso/file",
+    linkText: t("downloads.download_button"),
+    linkColor: "text-red-500",
+    borderColor: "border-red-500",
+    textColor: "text-red-500",
+  },
+  {
+    title: t("downloads.version2.name"),
+    buildInfo: t("downloads.version2.build_info"),
+    tags: [
+      { label: t("downloads.tags.x64_uefi"), bgColor: "blue-100", textColor: "blue-800" },
+      { label: t("downloads.tags.stable"), bgColor: "green-100", textColor: "green-800" },
+      { label: `${t("downloads.tags.updated")}: 7-02-2025`, bgColor: "blue-100", textColor: "blue-800" },
+    ],
+    features: [
+      t("downloads.features.installed_size_4gb"),
+      t("downloads.features.debloated_optimized"),
+      t("downloads.features.full_updatable_build"),
+      t("downloads.features.extreme_performance"),
+      t("downloads.features.uwp_apps_support"),
+      t("downloads.features.additional_language_support"),
+      t("downloads.features.optional_features_support"),
+      t("downloads.features.improvements_optimizations"),
+      t("downloads.features.no_preinstalled_uwp_apps"),
+      t("downloads.features_no_internet"),
+      t("downloads.features_telemetry"),
+    ],
+    link: "https://www.mediafire.com/file_premium/6txytyd1iu5syr3/CodeXtremeOS11_23H2.iso/file",
+    linkText: t("downloads.download_button"),
+    linkColor: "text-purple-500",
+    borderColor: "border-purple-500",
+    textColor: "text-purple-500",
+  },
+];
+
+const previousVersions = [
+  {
+    title: t("downloads.version1.name"),
+    buildInfo: t("downloads.version1.build_info"),
+    tags: [
+      { label: t("downloads.tags.x64_uefi"), bgColor: "blue-100", textColor: "blue-800" },
+      { label: t("downloads.tags.stable"), bgColor: "green-100", textColor: "green-800" },
+      { label: t("downloads.tags.limited_support"), bgColor: "yellow-100", textColor: "yellow-800" },
+      { label: `${t("downloads.tags.updated")}: 7-02-2025`, bgColor: "blue-100", textColor: "blue-800" },
+    ],
+    features: [
+      t("downloads.features.installed_size_3gb"),
+      t("downloads.features.debloated_optimized"),
+      t("downloads.features.full_updatable_build"),
+      t("downloads.features.automatic_updates_paused"),
+      t("downloads.features.intel_rst_drivers"),
+      t("downloads.features.extreme_performance"),
+      t("downloads.features.uwp_apps_support"),
+      t("downloads.features.additional_language_support"),
+      t("downloads.features.optional_features_support"),
+      t("downloads.features.improvements_optimizations"),
+      t("downloads.features.no_preinstalled_uwp_apps"),
+      t("downloads.features_no_internet"),
+      t("downloads.features_telemetry"),
+      t("downloads.features.ms_store_installer_included"),
+    ],
+    link: "https://www.mediafire.com/file_premium/mho2gzlbaeo4n89/CodeXtremeOS10_22H2.iso/file",
+    linkText: t("downloads.download_button"),
+    linkColor: "text-green-500",
+    borderColor: "border-green-500",
+    textColor: "text-green-500",
+  },
+];
 ---
 
 <BaseLayout title={t("nav.download") + " - CodeXtremeOS"}>
@@ -52,141 +147,24 @@ const t = useTranslations(currentLang as keyof typeof languageList);
         </p>
       </div>
     </div>
-    
   </section>
 
-<!-- Sección Principal -->
-<main class="bg-gradient-to-br from-[#F4F4F4] to-[#eaeaea] dark:from-[#1A1A1A] py-16 relative">
-  <h2 class="text-3xl font-bold text-center mb-12">
-    <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#b4ff88] to-[#012201]">
-      {t("downloads.11_versions.title")}
-    </span>
-  </h2>
-  <div class="container mx-auto px-4">
-    <!-- Contenedor Flex para ambas versiones -->
-    <div class="flex flex-col md:flex-row gap-8 justify-center">
-      
-      <!-- Card Versión Principal -->
-      <div class="group bg-white dark:bg-[#2A2A2A] p-6 rounded-xl shadow-lg 
-                  hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1
-                  max-w-2xl w-full">
-        <div class="border-l-4 border-[#FF6F61] pl-6">
-          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
-            {t("downloads.latest_version.name")}
-          </h3>
-          <div class="mb-4">
-            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.latest_version.build_info")}
-            </span>
-          </div>
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="bg-[#FF6F61]/10 text-[#FF6F61] px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.x64_uefi")}
-            </span>
-            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.stable")}
-            </span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.updated")}: 7-02-2025
-            </span>
-          </div>
-
-          <div class="space-y-4 mb-6 border-t border-gray-200 dark:border-gray-700 pt-4">
-            <div class="text-sm text-gray-600 dark:text-gray-300">
-              <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                Características de CodeXtremeOS 11 24H2
-              </h4>
-              <ul class="list-disc pl-6 text-sm space-y-1">
-                <li>{t("downloads.features.iso_size")}</li>
-                <li>{t("downloads.features.debloated_optimized")}</li>
-                <li>{t("downloads.features.full_updatable_build")}</li>
-                <li>{t("downloads.features.automatic_updates_paused")}</li>
-                <li>{t("downloads.features.intel_rst_drivers")}</li>
-                <li>{t("downloads.features.extreme_performance")}</li>
-                <li>{t("downloads.features.uwp_apps_support")}</li>
-                <li>{t("downloads.features.additional_language_support")}</li>
-                <li>{t("downloads.features.optional_features_support")}</li>
-                <li>{t("downloads.features.improvements_optimizations")}</li>
-                <li>{t("downloads.features.no_preinstalled_uwp_apps")}</li>
-                <li>{t("downloads.features_no_internet")}</li>
-                <li>{t("downloads.features_telemetry")}</li>
-                <li>{t("downloads.features.ms_store_installer_included")}</li>
-              </ul>
-            </div>
-          </div>
-
-          <a
-            href="https://www.mediafire.com/file_premium/mfmqqd8b218eozc/CodeXtremeOS11_24H2.iso/file"
-            class="inline-flex items-center text-[#FF6F61] hover:text-[#FF8C78] font-medium"
-          >
-            {t("downloads.download_button")}
-            <span set:html={`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-                                  class="w-4 h-4 ml-2">
-              <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1"/>
-              <path d="M12 2v12"/>
-            </svg>`}></span>
-          </a>
-        </div>
+  <!-- Sección Principal -->
+  <main class="bg-gradient-to-br from-[#F4F4F4] to-[#eaeaea] dark:from-[#1A1A1A] py-16 relative">
+    <h2 class="text-3xl font-bold text-center mb-12">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#b4ff88] to-[#012201]">
+        {t("downloads.11_versions.title")}
+      </span>
+    </h2>
+    <div class="container mx-auto px-4">
+      <!-- Contenedor Flex para las últimas versiones -->
+      <div class="flex flex-col md:flex-row gap-8 justify-center">
+        {latestVersions.map(version => (
+          <VersionCard {...version} />
+        ))}
       </div>
-
-      <!-- Card Versión 2 -->
-      <div class="group bg-white dark:bg-[#2A2A2A] p-6 rounded-xl shadow-lg 
-                  hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1
-                  max-w-2xl w-full">
-        <div class="border-l-4 border-[#6B5B95] pl-6">
-          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
-            {t("downloads.version2.name")}
-          </h3>
-          <div class="mb-4">
-            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.version2.build_info")}
-            </span>
-          </div>
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="bg-[#6B5B95]/10 text-[#6B5B95] px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.x64_uefi")}
-            </span>
-            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.stable")}
-            </span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.updated")}: 7-02-2025
-            </span>
-          </div>
-          <div class="space-y-4 mb-6 border-t border-gray-200 dark:border-gray-700 pt-4">
-            <div class="text-sm text-gray-600 dark:text-gray-300">
-              <p class="font-medium mb-2">{t("downloads.main_features")}:</p>
-              <ul class="list-disc list-inside space-y-1">
-                <li>{t("downloads.features.installed_size_4gb")}</li>
-                <li>{t("downloads.features.debloated_optimized")}</li>
-                <li>{t("downloads.features.full_updatable_build")}</li>
-                <li>{t("downloads.features.extreme_performance")}</li>
-                <li>{t("downloads.features.uwp_apps_support")}</li>
-                <li>{t("downloads.features.additional_language_support")}</li>
-                <li>{t("downloads.features.optional_features_support")}</li>
-                <li>{t("downloads.features.improvements_optimizations")}</li>
-                <li>{t("downloads.features.no_preinstalled_uwp_apps")}</li>
-                <li>{t("downloads.features_no_internet")}</li>
-                <li>{t("downloads.features_telemetry")}</li>
-              </ul>
-            </div>
-          <a
-            href="https://www.mediafire.com/file_premium/6txytyd1iu5syr3/CodeXtremeOS11_23H2.iso/file"
-            class="inline-flex items-center text-[#6B5B95] hover:text-[#8B7CB0] font-medium"
-          >
-            {t("downloads.download_button")}
-            <span set:html={`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-                                  class="w-4 h-4 ml-2">
-              <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1"/>
-              <path d="M12 2v12"/>
-            </svg>`}></span>
-          </a>
-        </div>
-      </div>
-
     </div>
-  </div>
-</main>
+  </main>
 
   <!-- Versiones Anteriores -->
   <section class="mb-24">
@@ -195,142 +173,12 @@ const t = useTranslations(currentLang as keyof typeof languageList);
         {t("downloads.previous_versions.title")}
       </span>
     </h2>
-  
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Versión 1 -->
-      <div class="group bg-white dark:bg-[#2A2A2A] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="border-l-4 border-[#4CAF50] pl-6">
-          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
-            {t("downloads.version1.name")}
-          </h3>
-          <span class="inline-block bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm mb-4">
-            {t("downloads.version1.build_info")}
-          </span>
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="bg-[#4CAF50]/10 text-[#4CAF50] px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.x64_uefi")}
-            </span>
-            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.stable")}
-            </span>
-            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.limited_support")}
-            </span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.updated")}: 7-02-2025
-            </span>
-          </div>
-          <div class="space-y-4 mb-6 border-t border-gray-200 dark:border-gray-700 pt-4">
-            <div class="text-sm text-gray-600 dark:text-gray-300">
-              <p class="font-medium mb-2">{t("downloads.main_features")}:</p>
-              <ul class="list-disc list-inside space-y-1">
-                <li>{t("downloads.features.installed_size_3gb")}</li>
-                <li>{t("downloads.features.debloated_optimized")}</li>
-                <li>{t("downloads.features.full_updatable_build")}</li>
-                <li>{t("downloads.features.automatic_updates_paused")}</li>
-                <li>{t("downloads.features.intel_rst_drivers")}</li>
-                <li>{t("downloads.features.extreme_performance")}</li>
-                <li>{t("downloads.features.uwp_apps_support")}</li>
-                <li>{t("downloads.features.additional_language_support")}</li>
-                <li>{t("downloads.features.optional_features_support")}</li>
-                <li>{t("downloads.features.improvements_optimizations")}</li>
-                <li>{t("downloads.features.no_preinstalled_uwp_apps")}</li>
-                <li>{t("downloads.features_no_internet")}</li>
-                <li>{t("downloads.features_telemetry")}</li>
-                <li>{t("downloads.features.ms_store_installer_included")}</li>
-              </ul>
-            </div>
-            <div class="text-sm text-gray-600 dark:text-gray-300">
-              <p class="font-medium mb-2">{t("downloads.guide_info")}:</p>
-              <a
-                href="https://www.ntlite.com/community/index.php?threads/guide-optimized-image.2990/"
-                class="text-[#4CAF50] hover:text-[#81C784]"
-                target="_blank"
-              >
-                {t("downloads.guide_link")}
-              </a>
-            </div>
-          </div>
-          <a
-            href="https://www.mediafire.com/file_premium/mho2gzlbaeo4n89/CodeXtremeOS10_22H2.iso/file"
-            class="inline-flex items-center text-[#4CAF50] hover:text-[#81C784] font-medium"
-          >
-            {t("downloads.download_button")}
-            <span set:html={`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 ml-2">
-              <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1"/>
-              <path d="M12 2v12"/>
-            </svg>`}></span>
-          </a>
-        </div>
-      </div>
-      <!-- Versión 2 -->
-      <div class="group bg-white dark:bg-[#2A2A2A] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="border-l-4 border-[#692d81] pl-6">
-          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">
-            {t("downloads.version1.name")}
-          </h3>
-          <span class="inline-block bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm mb-4">
-            {t("downloads.version3.build_info")}
-          </span>
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="bg-[#4CAF50]/10 text-[#4CAF50] px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.x64_uefi")}
-            </span>
-            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.stable")}
-            </span>
-            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.limited_support")}
-            </span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-              {t("downloads.tags.updated")}: 7-02-2025
-            </span>
-          </div>
-          <div class="space-y-4 mb-6 border-t border-gray-200 dark:border-gray-700 pt-4">
-            <div class="text-sm text-gray-600 dark:text-gray-300">
-              <p class="font-medium mb-2">{t("downloads.main_features")}:</p>
-              <ul class="list-disc list-inside space-y-1">
-                <li>{t("downloads.features.installed_size_3gb")}</li>
-                <li>{t("downloads.features.debloated_optimized")}</li>
-                <li>{t("downloads.features.automatic_updates_paused")}</li>
-                <li>{t("downloads.features.intel_rst_drivers")}</li>
-                <li>{t("downloads.features.extreme_performance")}</li>
-                <li>{t("downloads.features.additional_language_support")}</li>
-                <li>{t("downloads.features.optional_features_support")}</li>
-                <li>{t("downloads.features.improvements_optimizations")}</li>
-                <li>{t("downloads.features.no_preinstalled_uwp_apps")}</li>
-                <li>{t("downloads.features_no_internet")}</li>
-                <li>{t("downloads.features_telemetry")}</li>
-                <li>{t("downloads.features.ms_store_installer_included")}</li>
-              </ul>
-            </div>
-          <a
-            href="/ruta-de-descarga-v2"
-            class="inline-flex items-center text-[#934caf] hover:text-[#3b1742] font-medium"
-          >
-            {t("downloads.download_button")}
-            <span set:html={`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 ml-2">
-              <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1"/>
-              <path d="M12 2v12"/>
-            </svg>`}></span>
-          </a>
-        </div>
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row gap-8 justify-center">
+        {previousVersions.map(version => (
+          <VersionCard {...version} />
+        ))}
       </div>
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  /* Estilos existentes */
-  .group:hover h2 span,
-  .group:hover h3 span {
-    background-position: 100% 50%;
-    transition: background-position 0.5s ease-out;
-  }
-  h2 span,
-  h3 span {
-    background-size: 200% auto;
-    background-position: 0% 50%;
-    transition: background-position 0.3s ease-in;
-  }
-</style>
