@@ -60,7 +60,7 @@ const navLinks = [
 ---
 
 <header
-  class="bg-gradient-to-br from-[#ffffff] to-[#f5f5f5] dark:from-[#1A1A1A] dark:to-[#2d2d2d] border-b border-white/10 backdrop-blur-sm fixed w-full top-0 z-50"
+  class="bg-gradient-to-br from-[#ffffff] to-[#f5f5f5] dark:from-[#1A1A1A] dark:to-[#2d2d2d] border-b border-white/10 backdrop-blur-sm fixed w-full top-0 z-50 animate-slideInRight"
 >
   <div class="container mx-auto flex justify-between items-center px-4 py-3">
     <!-- Logo -->
@@ -69,7 +69,7 @@ const navLinks = [
       class="flex items-center space-x-2 group"
     >
       <span
-        class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#6B5B95] group-hover:bg-gradient-to-r group-hover:from-[#FF8C78] group-hover:to-[#8B7CB0] transition-all duration-300"
+        class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#6B5B95] group-hover:bg-gradient-to-r group-hover:from-[#FF8C78] group-hover:to-[#8B7CB0] transition-all duration-300 animate-shake"
       >
         CodeXtremeOS
       </span>
@@ -82,7 +82,7 @@ const navLinks = [
           <li>
             <a
               href={link.href}
-              class={`${desktopLinkClasses} ${link.desktopHoverText}`}
+              class={`${desktopLinkClasses} ${link.desktopHoverText} animate-linkElectric`}
             >
               <span set:html={link.icon}></span>
               {link.label}
@@ -171,7 +171,7 @@ const navLinks = [
   <!-- Menú Móvil -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden fixed top-16 left-0 w-full bg-inherit border-b border-white/10 backdrop-blur-sm shadow-lg animate-slideDown"
+    class="hidden md:hidden fixed top-16 left-0 w-full bg-inherit border-b border-white/10 backdrop-blur-sm shadow-lg animate-slideInRight"
   >
     <div class="container mx-auto px-4 py-4">
       <ul class="flex flex-row flex-wrap gap-4 justify-center">
@@ -224,7 +224,7 @@ const mobileMenu = document.getElementById("mobile-menu");
 
 const toggleMenu = () => {
   mobileMenu.classList.toggle("hidden");
-  mobileMenu.classList.toggle("animate-slideDown");
+  mobileMenu.classList.toggle("animate-slideInRight");
 };
 
 mobileMenuButton.addEventListener("click", (e) => {
@@ -236,7 +236,7 @@ mobileMenuButton.addEventListener("click", (e) => {
 document.addEventListener("click", (e) => {
   if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
     mobileMenu.classList.add("hidden");
-    mobileMenu.classList.remove("animate-slideDown");
+    mobileMenu.classList.remove("animate-slideInRight");
   }
 });
 
@@ -251,17 +251,35 @@ window.addEventListener("resize", () => {
 mobileMenu.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     mobileMenu.classList.add("hidden");
-    mobileMenu.classList.remove("animate-slideDown");
+    mobileMenu.classList.remove("animate-slideInRight");
   });
 });
 </script>
 
 <style>
-  @keyframes slideDown {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+  @keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
   }
-  .animate-slideDown {
-    animation: slideDown 0.3s ease-out;
+  .animate-slideInRight {
+    animation: slideInRight 0.5s ease-out;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+  }
+  .animate-shake {
+    animation: shake 0.5s ease-in-out infinite;
+  }
+
+  @keyframes linkElectric {
+    0%, 100% { text-shadow: 0 0 2px #FF6F61, 0 0 4px #FF6F61; }
+    50% { text-shadow: 0 0 4px #6B5B95, 0 0 8px #6B5B95; }
+  }
+  .animate-linkElectric {
+    animation: linkElectric 2s infinite;
   }
 </style>
