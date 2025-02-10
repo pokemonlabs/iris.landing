@@ -1,10 +1,11 @@
 ---
 import "../../styles/download-card.css"
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import VersionCard from "../../components/VersionCard.astro";
+
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { languageList } from "../../i18n/ui";
 import { useTranslations } from "../../i18n/utils";
-import VersionCard from "../../components/VersionCard.astro";
 
 const currentLang = Astro.currentLocale || "es";
 const t = useTranslations(currentLang as keyof typeof languageList);

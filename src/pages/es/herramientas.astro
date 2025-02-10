@@ -1,11 +1,11 @@
 ---
 import "../../styles/tailwind.css";
 import "../../styles/tool-card.css";
-
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import CategorySection from "../../components/CategorySection.astro";
+
 import { languageList } from "../../i18n/ui";
 import { useTranslations } from "../../i18n/utils";
-import CategorySection from "../../components/CategorySection.astro";
 
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(
