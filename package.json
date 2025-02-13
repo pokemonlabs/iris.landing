@@ -13,8 +13,16 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^6.1.0",
+    "@astrojs/react": "^4.2.0",
     "@heroicons/react": "^2.2.0",
-    "astro": "^5.1.8"
+    "@nanostores/react": "^0.8.4",
+    "@pheralb/toast": "^1.0.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "astro": "^5.1.8",
+    "nanostores": "^0.11.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^5.1.5",
