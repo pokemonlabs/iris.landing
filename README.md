@@ -1,4 +1,4 @@
-# CodeXtremeOS Website 🌐
+# CodeXtreme Website 🌐
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Astro](https://img.shields.io/badge/-Astro-FF5D01?logo=astro&logoColor=white)](https://astro.build)
