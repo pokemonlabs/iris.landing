@@ -47,8 +47,8 @@ Pasos de instalación:
 
 1. Clonar repositorio:
 ```bash
-git clone git clone https://github.com/CodeF1ow/codextreme.git
-cd codextremeos-web
+git clone git clone https://github.com/CodeF1ow/codextreme-web.git
+cd codextreme-web
 ```
 2. Instalar dependencias:
 ```bash
