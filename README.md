@@ -40,8 +40,8 @@ Meta tags dinámicos y sitemap automatizado
 ## Desarrollo Local
 
 Requisitos previos:
-- Node.js v18+
-- npm v9+ o pnpm v8+
+- Node.js v20+
+- pnpm v9+
 
 Pasos de instalación:
 
