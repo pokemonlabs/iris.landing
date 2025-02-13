@@ -4,7 +4,7 @@
 [![Astro](https://img.shields.io/badge/-Astro-FF5D01?logo=astro&logoColor=white)](https://astro.build)
 [![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 
-Sitio web oficial de **CodeXtremeOS** - Web informativa creada por **CodeFlow**. Proyecto open source construido con Astro y Tailwind CSS para máxima eficiencia y rendimiento.
+Sitio web oficial de **CodeXtreme** - Web informativa creada por **CodeFlow**. Proyecto open source construido con Astro y Tailwind CSS para máxima eficiencia y rendimiento.
 
 [![Desktop](https://i.imgur.com/XqhS1FZ.png)](https://www.codextreme.me/es/)
 
