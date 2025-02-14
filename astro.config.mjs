@@ -15,5 +15,4 @@ export default defineConfig({
 
   output: 'static',
   integrations: [tailwind(), react()],
-  adapter: netlify(),
 });
