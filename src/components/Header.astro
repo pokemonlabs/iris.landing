@@ -1,13 +1,14 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { languageList } from "../i18n/ui";
-import { useTranslations } from "../i18n/utils";
+import { languageList } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
 
 const getPathWithoutLocale = (path: string) => {
   const segments = path.split("/").filter(Boolean);
   return segments.slice(1).join("/") || "/";
 };
 
+console.log(Astro.url.pathname);
 const currentPathWithoutLocale = getPathWithoutLocale(Astro.url.pathname);
 const currentLang = Astro.currentLocale || "es";
 const translateLabels = useTranslations(currentLang as keyof typeof languageList);

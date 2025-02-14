@@ -1,4 +1,4 @@
-import { labels } from './ui';
+import { labels } from '@/i18n/ui';
 
 const defaultLang = 'es';
 
