@@ -1,6 +1,6 @@
 ---
 const { title, description, link, borderColor, textColor, hoverTextColor, gradientFrom, gradientTo, icon } = Astro.props;
-import { useTranslations } from "../i18n/utils";
+import { useTranslations } from "@/i18n/utils";
 const currentLang: "es" | "en" = (Astro.currentLocale as "es" | "en") || "es";
 const translateLabels = useTranslations(currentLang);
 ---

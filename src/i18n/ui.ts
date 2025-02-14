@@ -377,6 +377,7 @@ export const labels = {
     "downloads.features.no_preinstalled_uwp_apps": "No Pre-installed UWP Apps",
     "downloads.features.ms_store_installer_included": "MS Store Installer Included",
     "downloads.features.installed_size_3gb": "3.8 GB ISO",
+    "downloads.features.installed_size_4gb": "4.8 GB ISO",
     "downloads.features.full_featured_updatable_build": "Full Featured, Updatable Build",
     "downloads.features.automatic_updates_paused_3000": "Automatic Updates Paused Until 2029",
     "downloads.features.optional_system_transparency": "Includes Optional System Transparency",
