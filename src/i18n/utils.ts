@@ -1,6 +1,6 @@
 import { labels } from '@/i18n/ui';
 
-const defaultLang = 'es';
+const defaultLang = 'en';
 
 type AllKeys<T> = T extends Record<infer K, infer V> ? keyof V : never;
 type TranslationKey = AllKeys<typeof labels>;

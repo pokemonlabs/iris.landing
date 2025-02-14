@@ -6,7 +6,7 @@ import netlify from '@astrojs/netlify';  // Cambiar a este adaptador si usas Net
 
 export default defineConfig({
   i18n: {
-    defaultLocale: 'es',
+    defaultLocale: 'en',
     locales: ['es', 'en'],
     routing:{
       prefixDefaultLocale: false,
