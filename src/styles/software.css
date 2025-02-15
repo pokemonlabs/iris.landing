@@ -1,0 +1,189 @@
+/* Variables globales para modo claro y modo oscuro */
+:root {
+  --background-color: #ffffff;
+  --text-color: #111827;
+  --text-muted: #6B7280;
+  --border-color: #e5e7eb;
+  --tag-color: #6b7280;
+  --link-color: #3b82f6;
+  --link-hover-bg: #2563eb;
+  --link-hover-color: #ffffff;
+  --card-bg: #ffffff;
+  --gradient-from: #6B5B95;
+  --gradient-to: #f86c6c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+      --background-color: #1F2937;
+      --text-color: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --border-color: #374151;
+      --tag-color: #9CA3AF;
+      --link-color: #60A5FA;
+      --link-hover-bg: #3B82F6;
+      --link-hover-color: #ffffff;
+      --card-bg: #1F2937;
+      --gradient-from: #15131b;
+      --gradient-to: #855d5e;
+  }
+}
+
+/* Fondo general y color de texto */
+body, .bg-page {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Sección hero */
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* Contenedor de categorías */
+.category-section {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--card-bg);
+}
+.category-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos de las categorías */
+.category-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+/* Tarjetas de herramientas */
+.tool-card {
+  border-left: 3px solid var(--gradient-from);
+  padding-left: 1rem;
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, var(--gradient-from), var(--gradient-to));
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  color: #ffffff;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tool-card:hover {
+  transform: translateX(8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.group:hover h2 span {
+  background-position: 100% 50%;
+  transition: background-position 0.5s ease-out;
+}
+
+h2 span {
+  background-size: 200% auto;
+  background-position: 0% 50%;
+  transition: background-position 0.3s ease-in;
+}
+
+.tool-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.tool-description {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.tool-tags {
+  margin-top: 0.5rem;
+}
+
+.tool-tag {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: white;
+  margin-right: 0.3rem;
+}
+
+.tool-link {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.tool-link:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Colores específicos para etiquetas */
+.tool-tag.low-risk {
+  background-color: #4caf50;
+}
+
+.tool-tag.medium-risk {
+  background-color: #ffc107;
+}
+
+.tool-tag.high-risk {
+  background-color: #f44336;
+}
+
+.tool-tag.experimental {
+  background-color: #ff9800;
+}
+
+.tool-tag.beta {
+  background-color: #9c27b0;
+}
+
+.tool-tag.stable {
+  background-color: #2196f3;
+}
+
+.tool-tag.free {
+  background-color: #4caf50;
+}
+
+.tool-tag.paid {
+  background-color: #f44336;
+}
+
+.tool-tag.opensource {
+  background-color: #2196f3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tool-card {
+      border-left: none;
+      padding-left: 0;
+  }
+
+  .tool-card:hover {
+      transform: translateY(-5px);
+  }
+}
