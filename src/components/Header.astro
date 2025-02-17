@@ -10,7 +10,9 @@ const getPathWithoutLocale = (path: string): string => {
 
 const currentPathWithoutLocale = getPathWithoutLocale(Astro.url.pathname);
 const currentLang = Astro.currentLocale || "es";
-const translateLabels = useTranslations(currentLang as keyof typeof languageList);
+const translateLabels = useTranslations(
+  currentLang as keyof typeof languageList
+);
 
 const linkClasses =
   "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 group";
@@ -59,160 +61,242 @@ const navLinks = [
 ];
 ---
 
-<header class="bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700 backdrop-blur-sm fixed w-full top-0 z-50 animate-slideInRight">
+<header
+  class="bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700 backdrop-blur-sm fixed w-full top-0 z-50 animate-slideInRight"
+>
   <div class="container mx-auto flex justify-between items-center px-4 py-3">
-    <a href={getRelativeLocaleUrl(currentLang, "/")} class="flex items-center space-x-2 group">
-      <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#6B5B95] group-hover:bg-gradient-to-r group-hover:from-[#FF8C78] group-hover:to-[#8B7CB0] transition-all duration-300 animate-shake">
+    <a
+      href={getRelativeLocaleUrl(currentLang, "/")}
+      class="flex items-center space-x-2 group"
+    >
+      <span
+        class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#6B5B95] group-hover:bg-gradient-to-r group-hover:from-[#FF8C78] group-hover:to-[#8B7CB0] transition-all duration-300 animate-shake"
+      >
         CodeXtremeOS
       </span>
     </a>
 
     <nav class="flex items-center space-x-6">
       <ul class="hidden md:flex space-x-6">
-        {navLinks.map((link) => (
-          <li>
-            <a href={link.href} class={`${linkClasses} ${link.hoverText} animate-linkElectric`}>
-              <span set:html={link.icon}></span>
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class={`${linkClasses} ${link.hoverText} animate-linkElectric`}
+              >
+                <span set:html={link.icon} />
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
 
-      <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300" aria-label="Abrir menú">
-        <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+        aria-label="Abrir menú"
+      >
+        <svg
+          class="w-6 h-6 text-gray-600 dark:text-gray-300"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
 
       <div class="relative group">
-        <button class="p-2 rounded-lg bg-gradient-to-br from-[#FF6F61] to-[#6B5B95] hover:from-[#FF8C78] hover:to-[#8B7CB0] transition-all duration-300 flex items-center shadow-md hover:shadow-lg" aria-label="Cambiar idioma">
-          <span class="text-sm font-medium uppercase text-white">{currentLang}</span>
+        <button
+          class="p-2 rounded-lg bg-gradient-to-br from-[#FF6F61] to-[#6B5B95] hover:from-[#FF8C78] hover:to-[#8B7CB0] transition-all duration-300 flex items-center shadow-md hover:shadow-lg"
+          aria-label="Cambiar idioma"
+        >
+          <span class="text-sm font-medium uppercase text-white"
+            >{currentLang}</span
+          >
         </button>
 
-        <div class="absolute right-0 top-full mt-2 w-32 bg-white dark:bg-gray-900 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200 dark:border-gray-700">
+        <div
+          class="absolute right-0 top-full mt-2 w-32 bg-white dark:bg-gray-900 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200 dark:border-gray-700"
+        >
           <ul class="py-2">
-            {Object.entries(languageList).map(([langCode, langName]) =>
-              currentLang !== langCode && (
-                <li>
-                  <a href={getRelativeLocaleUrl(langCode as any, currentPathWithoutLocale)} class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors dark:text-white">
-                    {langName}
-                  </a>
-                </li>
+            {
+              Object.entries(languageList).map(
+                ([langCode, langName]) =>
+                  currentLang !== langCode && (
+                    <li>
+                      <a
+                        href={getRelativeLocaleUrl(
+                          langCode as any,
+                          currentPathWithoutLocale
+                        )}
+                        class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors dark:text-white"
+                      >
+                        {langName}
+                      </a>
+                    </li>
+                  )
               )
-            )}
+            }
           </ul>
         </div>
       </div>
 
-      <button id="theme-toggle" class="p-2 rounded-lg bg-gradient-to-br from-[#FF6F61] to-[#6B5B95] hover:from-[#FF8C78] hover:to-[#8B7CB0] transition-all duration-300 relative group shadow-md hover:shadow-lg" aria-label="Cambiar tema">
+      <button
+        id="theme-toggle"
+        class="p-2 rounded-lg bg-gradient-to-br from-[#FF6F61] to-[#6B5B95] hover:from-[#FF8C78] hover:to-[#8B7CB0] transition-all duration-300 relative group shadow-md hover:shadow-lg"
+        aria-label="Cambiar tema"
+      >
         <div class="flex items-center justify-center w-6 h-6">
-          <span id="theme-icon" class="text-lg transition-transform duration-300">🌙</span>
+          <span
+            id="theme-icon"
+            class="text-lg transition-transform duration-300">🌙</span
+          >
         </div>
-        <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-md">
+        <span
+          class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-md"
+        >
           {translateLabels("theme.toggle")}
         </span>
       </button>
     </nav>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden fixed top-16 left-0 w-full bg-inherit border-b border-gray-200 dark:border-gray-700 backdrop-blur-sm shadow-lg animate-slideInRight">
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden fixed top-16 left-0 w-full bg-inherit border-b border-gray-200 dark:border-gray-700 backdrop-blur-sm shadow-lg animate-slideInRight"
+  >
     <div class="container mx-auto px-4 py-4">
       <ul class="flex flex-row flex-wrap gap-4 justify-center">
-        {navLinks.map((link) => (
-          <li>
-            <a href={link.href} class={`${linkClasses} ${link.hoverText}`}>
-              <span set:html={link.icon}></span>
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {
+          navLinks.map((link) => (
+            <li>
+              <a href={link.href} class={`${linkClasses} ${link.hoverText}`}>
+                <span set:html={link.icon} />
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>
 </header>
 
 <script is:inline>
-const themeToggle = document.getElementById("theme-toggle");
-const themeIcon = document.getElementById("theme-icon");
-const htmlElement = document.documentElement;
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  const htmlElement = document.documentElement;
 
-const toggleTheme = () => {
-  htmlElement.classList.toggle("dark");
-  const isDarkMode = htmlElement.classList.contains("dark");
-  themeIcon.textContent = isDarkMode ? "☀️" : "🌙";
-  themeIcon.classList.add("rotate-[360deg]");
-  setTimeout(() => themeIcon.classList.remove("rotate-[360deg]"), 500);
-  localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-};
+  const toggleTheme = () => {
+    htmlElement.classList.toggle("dark");
+    const isDarkMode = htmlElement.classList.contains("dark");
+    themeIcon.textContent = isDarkMode ? "☀️" : "🌙";
+    themeIcon.classList.add("rotate-[360deg]");
+    setTimeout(() => themeIcon.classList.remove("rotate-[360deg]"), 500);
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+  };
 
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light") {
-  htmlElement.classList.remove("dark");
-  themeIcon.textContent = "🌙";
-} else {
-  htmlElement.classList.add("dark");
-  themeIcon.textContent = "☀️";
-}
-
-themeToggle.addEventListener("click", toggleTheme);
-
-const mobileMenuButton = document.getElementById("mobile-menu-button");
-const mobileMenu = document.getElementById("mobile-menu");
-
-const toggleMenu = () => {
-  mobileMenu.classList.toggle("hidden");
-  mobileMenu.classList.toggle("animate-slideInRight");
-};
-
-mobileMenuButton.addEventListener("click", (e) => {
-  e.stopPropagation();
-  toggleMenu();
-});
-
-document.addEventListener("click", (e) => {
-  if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-    mobileMenu.classList.add("hidden");
-    mobileMenu.classList.remove("animate-slideInRight");
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    htmlElement.classList.remove("dark");
+    themeIcon.textContent = "🌙";
+  } else {
+    htmlElement.classList.add("dark");
+    themeIcon.textContent = "☀️";
   }
-});
 
-window.addEventListener("resize", () => {
-  if (window.innerWidth >= 768) {
-    mobileMenu.classList.add("hidden");
-  }
-});
+  themeToggle.addEventListener("click", toggleTheme);
 
-mobileMenu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.add("hidden");
-    mobileMenu.classList.remove("animate-slideInRight");
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  const toggleMenu = () => {
+    mobileMenu.classList.toggle("hidden");
+    mobileMenu.classList.toggle("animate-slideInRight");
+  };
+
+  mobileMenuButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu();
   });
-});
+
+  document.addEventListener("click", (e) => {
+    if (
+      !mobileMenu.contains(e.target) &&
+      !mobileMenuButton.contains(e.target)
+    ) {
+      mobileMenu.classList.add("hidden");
+      mobileMenu.classList.remove("animate-slideInRight");
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) {
+      mobileMenu.classList.add("hidden");
+    }
+  });
+
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      mobileMenu.classList.remove("animate-slideInRight");
+    });
+  });
 </script>
 
 <style>
   @keyframes slideInRight {
-    from { transform: translateX(100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
   .animate-slideInRight {
     animation: slideInRight 0.5s ease-out;
   }
 
   @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-2px); }
-    50% { transform: translateX(2px); }
-    75% { transform: translateX(-2px); }
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-2px);
+    }
+    50% {
+      transform: translateX(2px);
+    }
+    75% {
+      transform: translateX(-2px);
+    }
   }
   .animate-shake {
     animation: shake 0.5s ease-in-out infinite;
   }
 
   @keyframes linkElectric {
-    0%, 100% { text-shadow: 0 0 2px #FF6F61, 0 0 4px #FF6F61; }
-    50% { text-shadow: 0 0 4px #6B5B95, 0 0 8px #6B5B95; }
+    0%,
+    100% {
+      text-shadow:
+        0 0 2px #ff6f61,
+        0 0 4px #ff6f61;
+    }
+    50% {
+      text-shadow:
+        0 0 4px #6b5b95,
+        0 0 8px #6b5b95;
+    }
   }
   .animate-linkElectric {
     animation: linkElectric 2s infinite;
