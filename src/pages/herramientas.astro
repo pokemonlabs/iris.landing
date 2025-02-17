@@ -1,0 +1,236 @@
+---
+import Layout from "@/layouts/BaseLayout.astro";
+import { useTranslations } from "@/i18n/utils";
+import TarjetaTools from "@/components/TarjetaTools.astro";
+
+const t = useTranslations(Astro.currentLocale || "es");
+
+const categories = [
+  "Generic Ubuntu",
+  "Generic Debian",
+  "Graphics and Modeling",
+  "Development"
+];
+
+const tools = [
+  // Generic Ubuntu
+  {
+    name: "Ubuntu Base",
+    description: "Base Ubuntu with VNC and Xfce",
+    category: "Generic Ubuntu",
+    tags: [{ label: "ubuntu", color: "#E95420" }, { label: "base", color: "#772953" }, { label: "xfce", color: "#2284F2" }],
+    dockerLink: "accetto/ubuntu-vnc-xfce-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-orange-600 dark:text-orange-400",
+    borderColor: "border-orange-500"
+  },
+  {
+    name: "Ubuntu Chromium",
+    description: "Ubuntu with Chromium browser",
+    category: "Generic Ubuntu",
+    tags: [{ label: "ubuntu", color: "#E95420" }, { label: "chromium", color: "#4587F3" }, { label: "browser", color: "#34A853" }],
+    dockerLink: "accetto/ubuntu-vnc-xfce-chromium-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-blue-600 dark:text-blue-400",
+    borderColor: "border-blue-500"
+  },
+  {
+    name: "Ubuntu Firefox",
+    description: "Ubuntu with Firefox browser",
+    category: "Generic Ubuntu",
+    tags: [{ label: "ubuntu", color: "#E95420" }, { label: "firefox", color: "#FF7139" }, { label: "browser", color: "#34A853" }],
+    dockerLink: "accetto/ubuntu-vnc-xfce-firefox-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-orange-600 dark:text-orange-400",
+    borderColor: "border-orange-500"
+  },
+  {
+    name: "Ubuntu OpenGL",
+    description: "Ubuntu with Mesa3D and VirtualGL support",
+    category: "Generic Ubuntu",
+    tags: [{ label: "ubuntu", color: "#E95420" }, { label: "opengl", color: "#5586A4" }, { label: "graphics", color: "#6B4C9A" }, { label: "3d", color: "#FF6B6B" }],
+    dockerLink: "accetto/ubuntu-vnc-xfce-opengl-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-blue-600 dark:text-blue-400",
+    borderColor: "border-blue-500"
+  },
+  // Generic Debian
+  {
+    name: "Debian Base",
+    description: "Base Debian with VNC and Xfce",
+    category: "Generic Debian",
+    tags: [{ label: "debian", color: "#A81D33" }, { label: "base", color: "#772953" }, { label: "xfce", color: "#2284F2" }],
+    dockerLink: "accetto/debian-vnc-xfce-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-red-600 dark:text-red-400",
+    borderColor: "border-red-500"
+  },
+  {
+    name: "Debian Chromium",
+    description: "Debian with Chromium browser",
+    category: "Generic Debian",
+    tags: [{ label: "debian", color: "#A81D33" }, { label: "chromium", color: "#4587F3" }, { label: "browser", color: "#34A853" }],
+    dockerLink: "accetto/debian-vnc-xfce-chromium-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-blue-600 dark:text-blue-400",
+    borderColor: "border-blue-500"
+  },
+  {
+    name: "Debian Firefox",
+    description: "Debian with Firefox browser",
+    category: "Generic Debian",
+    tags: [{ label: "debian", color: "#A81D33" }, { label: "firefox", color: "#FF7139" }, { label: "browser", color: "#34A853" }],
+    dockerLink: "accetto/debian-vnc-xfce-firefox-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-orange-600 dark:text-orange-400",
+    borderColor: "border-orange-500"
+  },
+  // Graphics and Modeling
+  {
+    name: "Ubuntu Blender",
+    description: "Ubuntu with Blender for 3D modeling",
+    category: "Graphics and Modeling",
+    tags: [{ label: "ubuntu", color: "#E95420" }, { label: "blender", color: "#EA7600" }, { label: "3d", color: "#FF6B6B" }, { label: "modeling", color: "#6B4C9A" }],
+    dockerLink: "accetto/ubuntu-vnc-xfce-blender-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-orange-600 dark:text-orange-400",
+    borderColor: "border-orange-500"
+  },
+  {
+    name: "Ubuntu Draw.io",
+    description: "Ubuntu with Draw.io for diagrams",
+    category: "Graphics and Modeling",
+    tags: [{ label: "ubuntu", color: "#E95420" }, { label: "drawio", color: "#F08705" }, { label: "diagrams", color: "#34A853" }],
+    dockerLink: "accetto/ubuntu-vnc-xfce-drawio-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-orange-600 dark:text-orange-400",
+    borderColor: "border-orange-500"
+  },
+  {
+    name: "Ubuntu FreeCAD",
+    description: "Ubuntu with FreeCAD for CAD modeling",
+    category: "Graphics and Modeling",
+    tags: [{ label: "ubuntu", color: "#E95420" }, { label: "freecad", color: "#205F8E" }, { label: "cad", color: "#6B4C9A" }, { label: "modeling", color: "#34A853" }],
+    dockerLink: "accetto/ubuntu-vnc-xfce-freecad-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-blue-600 dark:text-blue-400",
+    borderColor: "border-blue-500"
+  },
+  {
+    name: "Ubuntu GIMP",
+    description: "Ubuntu with GIMP for image editing",
+    category: "Graphics and Modeling",
+    tags: [{ label: "ubuntu", color: "#E95420" }, { label: "gimp", color: "#5C5543" }, { label: "image-editing", color: "#34A853" }],
+    dockerLink: "accetto/ubuntu-vnc-xfce-gimp-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-gray-600 dark:text-gray-400",
+    borderColor: "border-gray-500"
+  },
+  {
+    name: "Ubuntu Inkscape",
+    description: "Ubuntu with Inkscape for vector graphics",
+    category: "Graphics and Modeling",
+    tags: [{ label: "ubuntu", color: "#E95420" }, { label: "inkscape", color: "#000000" }, { label: "vector-graphics", color: "#34A853" }],
+    dockerLink: "accetto/ubuntu-vnc-xfce-inkscape-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-gray-600 dark:text-gray-400",
+    borderColor: "border-gray-500"
+  },
+  // Development
+  {
+    name: "Debian Node.js",
+    description: "Debian with Node.js development environment",
+    category: "Development",
+    tags: [{ label: "debian", color: "#A81D33" }, { label: "nodejs", color: "#339933" }, { label: "development", color: "#34A853" }, { label: "javascript", color: "#F7DF1E" }],
+    dockerLink: "accetto/debian-vnc-xfce-nodejs-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-green-600 dark:text-green-400",
+    borderColor: "border-green-500"
+  },
+  {
+    name: "Debian NVM",
+    description: "Debian with NVM for Node.js version management",
+    category: "Development",
+    tags: [{ label: "debian", color: "#A81D33" }, { label: "nvm", color: "#339933" }, { label: "nodejs", color: "#339933" }, { label: "development", color: "#34A853" }],
+    dockerLink: "accetto/debian-vnc-xfce-nvm-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-green-600 dark:text-green-400",
+    borderColor: "border-green-500"
+  },
+  {
+    name: "Debian Postman",
+    description: "Debian with Postman for API testing",
+    category: "Development",
+    tags: [{ label: "debian", color: "#A81D33" }, { label: "postman", color: "#FF6C37" }, { label: "api-testing", color: "#34A853" }],
+    dockerLink: "accetto/debian-vnc-xfce-postman-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-orange-600 dark:text-orange-400",
+    borderColor: "border-orange-500"
+  },
+  {
+    name: "Debian Python",
+    description: "Debian with Python development environment",
+    category: "Development",
+    tags: [{ label: "debian", color: "#A81D33" }, { label: "python", color: "#3776AB" }, { label: "development", color: "#34A853" }],
+    dockerLink: "accetto/debian-vnc-xfce-python-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-blue-600 dark:text-blue-400",
+    borderColor: "border-blue-500"
+  },
+  {
+    name: "Debian VS Code",
+    description: "Debian with Visual Studio Code",
+    category: "Development",
+    tags: [{ label: "debian", color: "#A81D33" }, { label: "vscode", color: "#007ACC" }, { label: "ide", color: "#34A853" }, { label: "development", color: "#34A853" }],
+    dockerLink: "accetto/debian-vnc-xfce-vscode-g3",
+    platformLink: "#",
+    linkText: "Learn More",
+    linkColor: "text-blue-600 dark:text-blue-400",
+    borderColor: "border-blue-500"
+  }
+];
+---
+
+<Layout title={t("nav.tools")}>
+  <main class="container mx-auto px-4 py-8 mt-20">
+    <h1 class="text-4xl font-bold text-center mb-8">{t("nav.tools")}</h1>
+    
+    {categories.map(category => (
+      <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">{category}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {tools
+            .filter(tool => tool.category === category)
+            .map(tool => (
+              <TarjetaTools
+                name={tool.name}
+                description={tool.description}
+                tags={tool.tags}
+                dockerLink={tool.dockerLink}
+                platformLink={tool.platformLink}
+                linkText={tool.linkText}
+                linkColor={tool.linkColor}
+                borderColor={tool.borderColor}
+              />
+            ))}
+        </div>
+      </div>
+    ))}
+  </main>
+</Layout>
