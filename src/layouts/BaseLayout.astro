@@ -5,9 +5,8 @@ import Footer from "@/components/Footer.astro";
 
 import { languageList } from "@/i18n/ui";
 
-
 const currentLang = Astro.currentLocale || "es";
-  currentLang as keyof typeof languageList
+currentLang as keyof typeof languageList;
 ---
 
 <!doctype html>
@@ -79,7 +78,7 @@ const currentLang = Astro.currentLocale || "es";
     </script>
   </head>
   <body
-    class="bg-gradient-to-tr from-gray-900 to-gray-800 text-gray-100 pt-20 min-h-screen"
+    class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 pt-20 min-h-screen"
   >
     <Header />
     <main class="min-h-[calc(100vh-8rem)]">
