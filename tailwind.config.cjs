@@ -1,13 +1,12 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
-  corePlugins: {
-    preflight: true,
-  },
   darkMode: 'class',
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,vue}'],
   theme: {
     container: {
       center: true,
-      padding: '2rem'
+      padding: '2rem',
     },
     extend: {
       animation: {
@@ -20,13 +19,13 @@ module.exports = {
           '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { 
-            transform: 'translateY(20px)', 
-            opacity: '0' 
+          '0%': {
+            transform: 'translateY(20px)',
+            opacity: '0'
           },
-          '100%': { 
-            transform: 'translateY(0)', 
-            opacity: '1' 
+          '100%': {
+            transform: 'translateY(0)',
+            opacity: '1'
           },
         },
       },
@@ -35,21 +34,15 @@ module.exports = {
         secondary: '#6B5B95',
         darkbg: '#1A1A1A',
         lightbg: '#F4F4F4',
-        slate: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          // ... completa la escala de colores si es necesario
-        }
+        slate: colors.slate, // Importa la escala completa
       },
       boxShadow: {
-        'xl-dark': '0 20px 25px -5px rgba(255, 255, 255, 0.1), 0 8px 10px -6px rgba(255, 255, 255, 0.1)'
-      }
+        'xl-dark': '0 20px 25px -5px rgba(255, 255, 255, 0.1), 0 8px 10px -6px rgba(255, 255, 255, 0.1)',
+      },
     },
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require('@tailwindcss/forms')({
-      strategy: 'class'
-    })
-  ]
-}
+    require('@tailwindcss/forms')({ strategy: 'class' }),
+  ],
+};

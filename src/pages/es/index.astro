@@ -13,18 +13,16 @@ const translateLabels = useTranslations(
 ---
 
 <BaseLayout title="Inicio - CodeXtremeOS">
-  <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-[#1A1A1A] to-[#2d2d2d] text-white py-20 overflow-hidden -mt-4">
+  <!-- Sección Hero -->
+  <section class="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 overflow-hidden -mt-4">
     <div class="container mx-auto text-center px-4 relative z-10">
       <div class="max-w-3xl mx-auto">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in [text-shadow:_0_4px_12px_rgb(0_0_0_/_30%)]">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in text-shadow-lg">
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#6B5B95]">
             CodeXtremeOS
           </span>
         </h1>
-        <p
-          class="text-xl md:text-2xl mb-8 animate-fade-in delay-150 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full inline-block"
-        >
+        <p class="text-xl md:text-2xl mb-8 animate-fade-in delay-150 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full inline-block">
           {translateLabels("home.description")}
         </p>
         <div class="animate-fade-in delay-200">
@@ -33,18 +31,8 @@ const translateLabels = useTranslations(
             class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#FF6F61] to-[#6B5B95] rounded-lg hover:opacity-90 transition-opacity"
           >
             {translateLabels("download.button")}
-            <svg
-              class="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              ></path>
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
             </svg>
           </a>
         </div>
@@ -53,14 +41,10 @@ const translateLabels = useTranslations(
   </section>
 
   <!-- Sección de Información -->
-  <main
-    class="bg-gradient-to-br from-[#F4F4F4] to-[#eaeaea] dark:from-[#1A1A1A] dark:to-[#2d2d2d] py-16 relative"
-  >
+  <main class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 py-16 relative">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12">
-        <span
-          class="bg-clip-text text-transparent bg-gradient-to-r from-[#6B5B95] to-[#8B7CB0]"
-        >
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#6B5B95] to-[#8B7CB0]">
           {translateLabels("home.ques")}
         </span>
       </h2>
@@ -125,12 +109,10 @@ const translateLabels = useTranslations(
   </main>
 
   <!-- Sección de Características -->
-  <section class="bg-white dark:bg-[#2A2A2A] py-16">
+  <section class="bg-white dark:bg-gray-900 py-16">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12">
-        <span
-          class="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#FF8C78]"
-        >
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#FF8C78]">
           {translateLabels("home.features")}
         </span>
       </h2>
@@ -165,13 +147,9 @@ const translateLabels = useTranslations(
   </section>
 
   <!-- Anuncio NTLite -->
-  <div
-    class="bg-gradient-to-r from-[#FFD700]/90 to-[#FF6F61]/90 text-black w-full"
-  >
+  <div class="bg-gradient-to-r from-yellow-300/90 to-red-500/90 text-black w-full">
     <div class="container mx-auto px-4 py-8">
-      <div
-        class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white/10 backdrop-blur-sm"
-      >
+      <div class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white/10 backdrop-blur-sm">
         <div class="px-6 py-5 text-center text-sm md:text-base">
           <p class="leading-relaxed">
             🛠️ <strong>Información Importante:</strong> Esta ISO fue optimizada y
@@ -180,7 +158,7 @@ const translateLabels = useTranslations(
               href="https://www.ntlite.com/download/"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-bold underline hover:text-[#2d2d2d] transition-colors"
+              class="font-bold underline hover:text-gray-800 transition-colors"
               aria-label="Enlace al sitio oficial de descarga de NTLite"
             >
               NTLite
@@ -188,32 +166,24 @@ const translateLabels = useTranslations(
             La versión gratuita es muy potente, aunque también cuenta con una
             versión premium que incluye más opciones.
             <br />
-            📚 Las guías y tutoriales para aprender a usar <strong
-              >NTLite</strong
-            > están disponibles en el
+            📚 Las guías y tutoriales para aprender a usar <strong>NTLite</strong> están disponibles en el
             <a
               href="https://www.ntlite.com/community/index.php?forums/guides.9/"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-bold underline hover:text-[#2d2d2d] transition-colors"
+              class="font-bold underline hover:text-gray-800 transition-colors"
               aria-label="Enlace al foro oficial de guías de NTLite"
             >
               foro oficial de NTLite
             </a>.
             <br />
             ⚠️ Esta ISO está diseñada para usuarios inexpertos o aquellos que prefieren
-            una solución rápida. Sin embargo, <strong
-              >recomiendo encarecidamente</strong
-            > que cada usuario cree su propia ISO personalizada siguiendo las guías
-            disponibles en nuestro sitio web o en el foro de <strong
-              >NTLite</strong
-            > para garantizar la máxima seguridad y control.
+            una solución rápida. Sin embargo, <strong>recomiendo encarecidamente</strong> que cada usuario cree su propia ISO personalizada siguiendo las guías
+            disponibles en nuestro sitio web o en el foro de <strong>NTLite</strong> para garantizar la máxima seguridad y control.
             <br /><br />
             💡 Además, es importante destacar que muchas de las ISOs populares que
             circulan en internet, a menudo invaden a los usuarios con publicidad
-            y programas de terceros innecesarios, y fueron creadas con <strong
-              >NTLite</strong
-            >, aunque sus creadores no lo mencionen. Por eso, es fundamental
+            y programas de terceros innecesarios, y fueron creadas con <strong>NTLite</strong>, aunque sus creadores no lo mencionen. Por eso, es fundamental
             personalizar tu propia ISO para evitar problemas y obtener un
             sistema limpio y seguro.
           </p>
@@ -223,10 +193,10 @@ const translateLabels = useTranslations(
   </div>
 
   <!-- Sección Final CTA -->
-  <section class="relative bg-gradient-to-br from-[#1A1A1A] to-[#2d2d2d] text-white py-24 overflow-hidden">
+  <section class="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white py-24 overflow-hidden">
     <div class="container mx-auto text-center px-4 relative z-10">
       <h2 class="text-4xl md:text-5xl font-bold mb-6">
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] to-[#FF6F61]">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-red-500">
           {translateLabels("home.go")}
         </span>
       </h2>
@@ -240,7 +210,7 @@ const translateLabels = useTranslations(
         </svg>
       </a>
     </div>
-</section>
+  </section>
 </BaseLayout>
 
 <style>
