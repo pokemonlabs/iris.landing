@@ -10,7 +10,7 @@ Sitio web oficial de **CodeXtreme** - Web informativa creada por **CodeFlow**. P
 
 ## Propósito del Proyecto
 
-Este repositorio contiene el código fuente completo del sitio web de CodeXtremeOS, diseñado para:
+Este repositorio contiene el código fuente completo del sitio web de FlowStateOS, diseñado para:
 
 - Presentar las características del sistema operativo
 - Proporcionar documentación técnica

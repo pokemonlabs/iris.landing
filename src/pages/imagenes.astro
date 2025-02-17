@@ -1,0 +1,325 @@
+---
+import "@/styles/tailwind.css";
+import "@/styles/herramientas.css";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ToolCard from "@/components/TarjetaTools.astro";
+
+import { languageList } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
+
+const currentLang = Astro.currentLocale || "es";
+const t = useTranslations(currentLang as keyof typeof languageList);
+
+const categories = [
+  {
+    title: "🌐 Browsers & Base",
+    borderColor: "border-blue-500",
+    gradientFrom: "#2196F3",
+    gradientTo: "#64B5F6",
+    tools: [
+      {
+        name: "Ubuntu Base",
+        description: "Base Ubuntu image with essential tools and utilities",
+        image: "/images/tools/ubuntu.png",
+        tags: [
+          { label: "Ubuntu", color: "#E95420" },
+          { label: "Base Image", color: "#2196F3" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/ubuntu-base",
+        platformLink: "https://app.flowstate.ai/launch?image=ubuntu-base",
+        linkText: "Launch",
+        linkColor: "text-blue-500",
+      },
+      {
+        name: "Ubuntu Chromium",
+        description: "Ubuntu with Chromium browser for web automation",
+        image: "/images/tools/chromium.png",
+        tags: [
+          { label: "Ubuntu", color: "#E95420" },
+          { label: "Browser", color: "#2196F3" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/ubuntu-chromium",
+        platformLink: "https://app.flowstate.ai/launch?image=ubuntu-chromium",
+        linkText: "Launch",
+        linkColor: "text-blue-500",
+      },
+      {
+        name: "Ubuntu Firefox",
+        description: "Ubuntu with Firefox for secure browsing",
+        image: "/images/tools/firefox.png",
+        tags: [
+          { label: "Ubuntu", color: "#E95420" },
+          { label: "Browser", color: "#2196F3" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/ubuntu-firefox",
+        platformLink: "https://app.flowstate.ai/launch?image=ubuntu-firefox",
+        linkText: "Launch",
+        linkColor: "text-blue-500",
+      },
+      {
+        name: "Ubuntu OpenGL",
+        description: "Ubuntu with OpenGL support for graphics applications",
+        image: "/images/tools/opengl.png",
+        tags: [
+          { label: "Ubuntu", color: "#E95420" },
+          { label: "Graphics", color: "#2196F3" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/ubuntu-opengl",
+        platformLink: "https://app.flowstate.ai/launch?image=ubuntu-opengl",
+        linkText: "Launch",
+        linkColor: "text-blue-500",
+      },
+      {
+        name: "Debian Base",
+        description: "Minimal Debian environment for lightweight usage",
+        image: "/images/tools/debian.png",
+        tags: [
+          { label: "Debian", color: "#A81D33" },
+          { label: "Base Image", color: "#2196F3" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/debian-base",
+        platformLink: "https://app.flowstate.ai/launch?image=debian-base",
+        linkText: "Launch",
+        linkColor: "text-blue-500",
+      },
+      {
+        name: "Debian Chromium",
+        description: "Debian with Chromium for efficient web browsing",
+        image: "/images/tools/chromium.png",
+        tags: [
+          { label: "Debian", color: "#A81D33" },
+          { label: "Browser", color: "#2196F3" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/debian-chromium",
+        platformLink: "https://app.flowstate.ai/launch?image=debian-chromium",
+        linkText: "Launch",
+        linkColor: "text-blue-500",
+      },
+      {
+        name: "Debian Firefox",
+        description: "Debian with Firefox browser",
+        image: "/images/tools/firefox.png",
+        tags: [
+          { label: "Debian", color: "#A81D33" },
+          { label: "Browser", color: "#2196F3" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/debian-firefox",
+        platformLink: "https://app.flowstate.ai/launch?image=debian-firefox",
+        linkText: "Launch",
+        linkColor: "text-blue-500",
+      },
+    ],
+  },
+  {
+    title: "🎨 Creative Tools",
+    borderColor: "border-purple-500",
+    gradientFrom: "#9C27B0",
+    gradientTo: "#BA68C8",
+    tools: [
+      {
+        name: "Blender",
+        description: "3D creation suite on Ubuntu with GPU support",
+        image: "/images/tools/blender.png",
+        tags: [
+          { label: "Ubuntu", color: "#E95420" },
+          { label: "Creative", color: "#9C27B0" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/ubuntu-blender",
+        platformLink: "https://app.flowstate.ai/launch?image=ubuntu-blender",
+        linkText: "Launch",
+        linkColor: "text-purple-500",
+      },
+      {
+        name: "Draw.io",
+        description: "Diagram creation and editing on Ubuntu",
+        image: "/images/tools/drawio.png",
+        tags: [
+          { label: "Ubuntu", color: "#E95420" },
+          { label: "Creative", color: "#9C27B0" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/ubuntu-drawio",
+        platformLink: "https://app.flowstate.ai/launch?image=ubuntu-drawio",
+        linkText: "Launch",
+        linkColor: "text-purple-500",
+      },
+      {
+        name: "FreeCAD",
+        description: "3D parametric modeler on Ubuntu",
+        image: "/images/tools/freecad.png",
+        tags: [
+          { label: "Ubuntu", color: "#E95420" },
+          { label: "Creative", color: "#9C27B0" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/ubuntu-freecad",
+        platformLink: "https://app.flowstate.ai/launch?image=ubuntu-freecad",
+        linkText: "Launch",
+        linkColor: "text-purple-500",
+      },
+      {
+        name: "GIMP",
+        description: "Image editing on Ubuntu",
+        image: "/images/tools/gimp.png",
+        tags: [
+          { label: "Ubuntu", color: "#E95420" },
+          { label: "Creative", color: "#9C27B0" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/ubuntu-gimp",
+        platformLink: "https://app.flowstate.ai/launch?image=ubuntu-gimp",
+        linkText: "Launch",
+        linkColor: "text-purple-500",
+      },
+      {
+        name: "Inkscape",
+        description: "Vector graphics editor on Ubuntu",
+        image: "/images/tools/inkscape.png",
+        tags: [
+          { label: "Ubuntu", color: "#E95420" },
+          { label: "Creative", color: "#9C27B0" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/ubuntu-inkscape",
+        platformLink: "https://app.flowstate.ai/launch?image=ubuntu-inkscape",
+        linkText: "Launch",
+        linkColor: "text-purple-500",
+      },
+    ],
+  },
+  {
+    title: "💻 Development",
+    borderColor: "border-green-500",
+    gradientFrom: "#4CAF50",
+    gradientTo: "#81C784",
+    tools: [
+      {
+        name: "Node.js",
+        description: "Node.js development environment on Debian",
+        image: "/images/tools/nodejs.png",
+        tags: [
+          { label: "Debian", color: "#A81D33" },
+          { label: "Development", color: "#4CAF50" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/debian-nodejs",
+        platformLink: "https://app.flowstate.ai/launch?image=debian-nodejs",
+        linkText: "Launch",
+        linkColor: "text-green-500",
+      },
+      {
+        name: "NVM Environment",
+        description: "Node Version Manager setup on Debian",
+        image: "/images/tools/nvm.png",
+        tags: [
+          { label: "Debian", color: "#A81D33" },
+          { label: "Development", color: "#4CAF50" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/debian-nvm",
+        platformLink: "https://app.flowstate.ai/launch?image=debian-nvm",
+        linkText: "Launch",
+        linkColor: "text-green-500",
+      },
+      {
+        name: "Postman",
+        description: "API development environment on Debian",
+        image: "/images/tools/postman.png",
+        tags: [
+          { label: "Debian", color: "#A81D33" },
+          { label: "Development", color: "#4CAF50" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/debian-postman",
+        platformLink: "https://app.flowstate.ai/launch?image=debian-postman",
+        linkText: "Launch",
+        linkColor: "text-green-500",
+      },
+      {
+        name: "Python",
+        description: "Python development environment on Debian",
+        image: "/images/tools/python.png",
+        tags: [
+          { label: "Debian", color: "#A81D33" },
+          { label: "Development", color: "#4CAF50" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/debian-python",
+        platformLink: "https://app.flowstate.ai/launch?image=debian-python",
+        linkText: "Launch",
+        linkColor: "text-green-500",
+      },
+      {
+        name: "VS Code",
+        description: "VS Code IDE on Debian",
+        image: "/images/tools/vscode.png",
+        tags: [
+          { label: "Debian", color: "#A81D33" },
+          { label: "Development", color: "#4CAF50" },
+        ],
+        dockerLink: "https://hub.docker.com/r/flowstate/debian-vscode",
+        platformLink: "https://app.flowstate.ai/launch?image=debian-vscode",
+        linkText: "Launch",
+        linkColor: "text-green-500",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Container Images - FlowState AI">
+  <!-- Hero Section -->
+  <div class="container mx-auto text-center px-4 relative z-10">
+    <div class="max-w-3xl mx-auto">
+      <h1
+        class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in [text-shadow:_0_4px_12px_rgb(0_0_0_/_30%)]"
+      >
+        <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600"
+        >
+          Container Images
+        </span>
+      </h1>
+
+      <p
+        class="text-xl md:text-2xl mb-8 animate-fade-in delay-150 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full inline-block"
+      >
+        Pre-built containers for development, browsing, and creative work
+      </p>
+    </div>
+  </div>
+  <section class="py-12 mb-8 relative">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-gradient-to-r from-blue-500/90 to-purple-600/90 text-white mx-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="container mx-auto px-6 py-5 text-center text-sm md:text-base">
+          <p class="leading-relaxed">
+            ⭐ <strong>Important!</strong>{" "}
+            These images are optimized for use with the FlowState AI platform but can also be run independently via Docker.
+            <br /><br />
+            🚀 How to use these images:
+            <br />
+            1. Use directly in FlowState platform for immediate access
+            <br />
+            2. Pull from Docker Hub for local development
+            <br />
+            3. Contribute improvements via our GitHub repository
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Tools Section -->
+  <main class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-16 relative">
+    <div class="container mx-auto px-4 mb-24">
+      {categories.map(category => (
+        <div class="mb-16">
+          <h2 class="text-2xl font-bold mb-8 text-center">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+              {category.title}
+            </span>
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {category.tools.map(tool => (
+              <ToolCard 
+                {...tool} 
+                borderColor={category.borderColor}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </main>
+</BaseLayout>
